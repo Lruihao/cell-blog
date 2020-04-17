@@ -11,7 +11,7 @@ return [
     | login page.
     |
     */
-    'name' => 'Cell-Blog',
+    'name' => 'Cell Blog',
 
     /*
     |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ return [
     | `img` tag, eg '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo' => '<b>Cell-Blog</b> Admin',
+    'logo' => '<b>Cell</b> Blog',
 
     /*
     |--------------------------------------------------------------------------
