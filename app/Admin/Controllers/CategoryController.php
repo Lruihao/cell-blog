@@ -15,10 +15,10 @@ class CategoryController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Admin\Models\Category';
+    protected $title = '文章分类';
 
     /**
-     * Make a grid builder.
+     * 创建分类表格
      *
      * @return Grid
      */
@@ -28,6 +28,7 @@ class CategoryController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
+//        $grid->column('article_num', __('Article num'));
         $grid->column('description', __('Description'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
@@ -55,7 +56,7 @@ class CategoryController extends AdminController
     }
 
     /**
-     * Make a form builder.
+     * 创建新增分类表单
      *
      * @return Form
      */

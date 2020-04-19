@@ -15,7 +15,7 @@ class TagController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Admin\Models\Tag';
+    protected $title = '文章标签';
 
     /**
      * Make a grid builder.
@@ -28,6 +28,7 @@ class TagController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
+//        $grid->column('article_num', __('Article num'));
         $grid->column('description', __('Description'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
@@ -55,7 +56,7 @@ class TagController extends AdminController
     }
 
     /**
-     * Make a form builder.
+     * 创建新增标签表单
      *
      * @return Form
      */

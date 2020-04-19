@@ -3,6 +3,8 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Models\Article;
+use App\Admin\Models\AdminUser;
+use App\Admin\Models\Category;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -15,10 +17,10 @@ class ArticleController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Admin\Models\Article';
+    protected $title = '文章管理';
 
     /**
-     * Make a grid builder.
+     * 创建文章表格
      *
      * @return Grid
      */
@@ -28,15 +30,17 @@ class ArticleController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('title', __('Title'));
-        $grid->column('author', __('Author'));
-        $grid->column('category_id', __('Category id'));
-        $grid->column('description', __('Description'));
-        $grid->column('keywords', __('Keywords'));
+        $grid->column('user_id', __('Author'))
+            ->display(function($userId) {
+            return AdminUser::find($userId)->name;
+        });
+        $grid->column('views', __('Views'));
+        $grid->column('category_id', __('Category'))
+            ->display(function($categoryId) {
+            return Category::find($categoryId)->name;
+        });
         $grid->column('sort', __('Sort'));
         $grid->column('password', __('Password'));
-        $grid->column('views', __('Views'));
-        $grid->column('markdown', __('Markdown'));
-        $grid->column('html', __('Html'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -53,10 +57,9 @@ class ArticleController extends AdminController
     {
         $show = new Show(Article::findOrFail($id));
 
-        $show->field('id', __('Id'));
         $show->field('title', __('Title'));
-        $show->field('author', __('Author'));
-        $show->field('category_id', __('Category id'));
+        $show->field('user_id', __('Author'));
+        $show->field('category_id', __('Category'));
         $show->field('description', __('Description'));
         $show->field('keywords', __('Keywords'));
         $show->field('sort', __('Sort'));
@@ -71,7 +74,7 @@ class ArticleController extends AdminController
     }
 
     /**
-     * Make a form builder.
+     * 创建新增文章表单
      *
      * @return Form
      */
@@ -80,15 +83,16 @@ class ArticleController extends AdminController
         $form = new Form(new Article());
 
         $form->text('title', __('Title'));
-        $form->text('author', __('Author'));
-        $form->switch('category_id', __('Category id'));
+        $form->number('user_id', __('Author'));
+        $form->number('category_id', __('Category'));
         $form->text('description', __('Description'));
         $form->text('keywords', __('Keywords'));
         $form->number('sort', __('Sort'));
         $form->password('password', __('Password'));
         $form->number('views', __('Views'));
-        $form->textarea('markdown', __('Markdown'));
-        $form->textarea('html', __('Html'));
+        $form->editormd('markdown');
+//        $form->textarea('markdown', __('Markdown'));
+//        $form->textarea('html', __('Html'));
 
         return $form;
     }
