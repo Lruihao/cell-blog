@@ -1,0 +1,15 @@
+{
+  "Id": "ID",
+  "Title": "标题",
+  "Author": "作者",
+  "Category": "分类",
+  "Description": "描述",
+  "Keywords": "关键词",
+  "Sort": "排序",
+  "Password": "密码",
+  "Views": "阅读数",
+  "Article num": "文章数",
+  "Name": "名字",
+  "Created at": "创建时间",
+  "Updated at": "更新时间"
+}
