@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateArticleTagsTable extends Migration
 {
     /**
-     * Run the migrations.
+     * 创建 article_tags 对应表
      *
      * @return void
      */

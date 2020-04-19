@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateTagsTable extends Migration
 {
     /**
-     * Run the migrations.
+     * 创建标签表
      *
      * @return void
      */
