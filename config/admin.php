@@ -396,6 +396,21 @@ return [
     |
     */
     'extensions' => [
-
+        'editormd' => [
+            // Set to false if you want to disable this extension
+            'enable' => true,
+            // Set to true if you want to take advantage the screen length for your editormd instance.
+            'wideMode' => false,
+            // Set to true when the instance included in larave-admin tab component.
+            'dynamicMode' => false,
+            // Editor.js configuration (Refer to http://pandao.github.io/editor.md/)
+            'config' =>
+                [
+                    'path' => '/vendor/laravel-admin-ext/editormd/editormd-1.5.0/lib/',
+                    'width' => '100%',
+                    'height' => 600,
+                    'emoji' => true
+                ]
+        ]
     ],
 ];
