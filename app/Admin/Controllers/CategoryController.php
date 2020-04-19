@@ -30,8 +30,10 @@ class CategoryController extends AdminController
         $grid->column('name', __('Name'));
 //        $grid->column('article_num', __('Article num'));
         $grid->column('description', __('Description'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('created_at', __('Created at'))
+            ->date('Y-m-d H:i:s');
+        $grid->column('updated_at', __('Updated at'))
+            ->date('Y-m-d H:i:s');
 
         return $grid;
     }

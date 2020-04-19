@@ -41,8 +41,10 @@ class ArticleController extends AdminController
         });
         $grid->column('sort', __('Sort'));
         $grid->column('password', __('Password'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('created_at', __('Created at'))
+            ->date('Y-m-d H:i:s');
+        $grid->column('updated_at', __('Updated at'))
+            ->date('Y-m-d H:i:s');
 
         return $grid;
     }
@@ -91,8 +93,6 @@ class ArticleController extends AdminController
         $form->password('password', __('Password'));
         $form->number('views', __('Views'));
         $form->editormd('markdown');
-//        $form->textarea('markdown', __('Markdown'));
-//        $form->textarea('html', __('Html'));
 
         return $form;
     }
