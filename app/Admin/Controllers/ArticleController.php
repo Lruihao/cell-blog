@@ -3,12 +3,11 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Models\Article;
-use App\Admin\Models\AdminUser;
-use App\Admin\Models\Category;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Encore\Admin\Facades\Admin;
 
 class ArticleController extends AdminController
 {
@@ -28,23 +27,58 @@ class ArticleController extends AdminController
     {
         $grid = new Grid(new Article());
 
-        $grid->column('id', __('Id'));
-        $grid->column('title', __('Title'));
-        $grid->column('user_id', __('Author'))
-            ->display(function($userId) {
-            return AdminUser::find($userId)->name;
-        });
-        $grid->column('views', __('Views'));
-        $grid->column('category_id', __('Category'))
-            ->display(function($categoryId) {
-            return Category::find($categoryId)->name;
-        });
-        $grid->column('sort', __('Sort'));
-        $grid->column('password', __('Password'));
+        //非超级管理员只能管理自己为作者的文章
+        if (!Admin::user()->isAdministrator()) {
+            $grid->model()->where('user_id', '=', Admin::user()->id);
+        }
+        //对文章进行置顶排序
+        $grid->model()->orderBy('sort', 'desc');
+
+        $grid->column('number', __('Number'));
+        $grid->column('title', __('Title'))
+            ->limit(30)
+            ->filter('like');
+        $grid->column('user.name', __('Author'));
+        $grid->column('views', __('Views'))
+            ->hide();
+        //设置颜色，默认`success`,可选`danger`、`warning`、`info`、`primary`、`default`、`success`
+        $grid->column('category.name', __('Category'))
+            ->label('primary');
+        $grid->column('sort', __('Sort'))
+            ->sortable()
+            ->replace([0 => '-'])
+            ->help('最大值置顶')
+            ->editable()
+            ->hide();
         $grid->column('created_at', __('Created at'))
-            ->date('Y-m-d H:i:s');
+            ->date('Y-m-d H:i:s')
+            ->filter('date');
         $grid->column('updated_at', __('Updated at'))
-            ->date('Y-m-d H:i:s');
+            ->date('Y-m-d H:i:s')
+            ->filter('date')
+            ->hide();
+
+        //为每一行添加序号
+        $grid->rows(function ($row, $number) {
+            $row->column('number', $number + 1);
+        });
+
+        //数据过滤器
+        $grid->filter(function ($filter) {
+            // 去掉默认的id过滤器
+            $filter->disableIdFilter();
+
+            $filter->column(1 / 2, function ($filter) {
+                $filter->like('title', __('Title'));
+                if (Admin::user()->isAdministrator()) {
+                    $filter->like('user.name', __('Author'));
+                }
+            });
+            $filter->column(1 / 2, function ($filter) {
+                $filter->date('created_at', __('Created at'));
+                $filter->date('updated_at', __('Updated at'));
+            });
+        });
 
         return $grid;
     }
