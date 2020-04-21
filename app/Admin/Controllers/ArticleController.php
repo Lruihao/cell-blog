@@ -33,7 +33,7 @@ class ArticleController extends AdminController
         }
         //对文章进行置顶排序
         $grid->model()->orderBy('sort', 'desc');
-
+        $grid->disableExport();
         $grid->column('number', __('Number'));
         $grid->column('title', __('Title'))
             ->limit(30)
