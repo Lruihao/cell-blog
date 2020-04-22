@@ -26,7 +26,6 @@ class CategoryController extends AdminController
     {
         $grid = new Grid(new Category());
 
-        $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
 //        $grid->column('article_num', __('Article num'));
         $grid->column('description', __('Description'));
@@ -34,6 +33,13 @@ class CategoryController extends AdminController
             ->date('Y-m-d H:i:s');
         $grid->column('updated_at', __('Updated at'))
             ->date('Y-m-d H:i:s');
+
+        //搜索
+        $grid->quickSearch('name')->placeholder('搜索分类...');
+        $grid->quickCreate(function (Grid\Tools\QuickCreate $create) {
+            $create->text('name', __('Name'));
+            $create->text('description', __('Description'));
+        });
 
         return $grid;
     }

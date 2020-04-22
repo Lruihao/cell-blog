@@ -9,7 +9,9 @@
   "Sort": "排序",
   "Views": "阅读数",
   "Article num": "文章数",
-  "Name": "名字",
+  "Name": "名称",
   "Created at": "创建时间",
-  "Updated at": "更新时间"
+  "Updated at": "更新时间",
+  "Markdown": "内容",
+  "Password": "密码"
 }
