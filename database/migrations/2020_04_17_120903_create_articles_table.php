@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->integer('user_id')->unsigned()->default(0)->comment('作者ID');
             $table->integer('category_id')->unsigned()->default(0)->comment('分类ID');
             $table->string('description')->default('')->comment('描述');
-            $table->string('keywords')->default('')->comment('关键词');
+            $table->string('keywords')->nullable()->comment('关键词');
             $table->integer('sort')->unsigned()->default(0)->comment('置顶排序');
             $table->string('password')->nullable()->default('')->comment('文章密码');
             $table->integer('views')->unsigned()->default(0)->comment('阅读数量');
