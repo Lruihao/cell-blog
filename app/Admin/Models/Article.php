@@ -4,6 +4,7 @@ namespace App\Admin\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use GrahamCampbell\Markdown\Facades\Markdown;
+use Encore\Admin\Facades\Admin;
 
 class Article extends Model
 {
@@ -14,7 +15,6 @@ class Article extends Model
      */
     protected $attributes = [
         'sort' => 0,
-        'password' => '',
         'views' => 0,
     ];
 
@@ -24,7 +24,12 @@ class Article extends Model
     public static function boot()
     {
         parent::boot();
+
+        static::creating(function ($article) {
+            $article->user_id = Admin::user()->id;
+        });
         static::saving(function ($article) {
+            $article->category_id ?? $article->category_id = 0;
             $article->html = Markdown::convertToHtml($article->markdown);
         });
     }
@@ -33,7 +38,8 @@ class Article extends Model
      * 获取关联到文章的作者
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
@@ -41,8 +47,14 @@ class Article extends Model
      * 获取关联到文章的分类
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function category(){
+    public function category()
+    {
         return $this->belongsTo(Category::class);
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 
 }

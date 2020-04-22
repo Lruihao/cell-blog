@@ -3,6 +3,8 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Models\Article;
+use App\Admin\Models\Category;
+use App\Admin\Models\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -26,18 +28,20 @@ class ArticleController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Article());
+        global $isAdmin;
+        $isAdmin = Admin::user()->isAdministrator();
 
         //非超级管理员只能管理自己为作者的文章
-        if (!Admin::user()->isAdministrator()) {
+        if (!$isAdmin) {
             $grid->model()->where('user_id', '=', Admin::user()->id);
         }
         //对文章进行置顶排序
         $grid->model()->orderBy('sort', 'desc');
         $grid->disableExport();
-        $grid->column('number', __('Number'));
+        $grid->enableHotKeys();
+
         $grid->column('title', __('Title'))
-            ->limit(30)
-            ->filter('like');
+            ->limit(30);
         $grid->column('user.name', __('Author'));
         $grid->column('views', __('Views'))
             ->hide();
@@ -51,33 +55,19 @@ class ArticleController extends AdminController
             ->editable()
             ->hide();
         $grid->column('created_at', __('Created at'))
-            ->date('Y-m-d H:i:s')
-            ->filter('date');
+            ->date('Y-m-d H:i:s');
         $grid->column('updated_at', __('Updated at'))
-            ->date('Y-m-d H:i:s')
-            ->filter('date')
-            ->hide();
+            ->date('Y-m-d H:i:s');
 
-        //为每一行添加序号
-        $grid->rows(function ($row, $number) {
-            $row->column('number', $number + 1);
-        });
-
-        //数据过滤器
-        $grid->filter(function ($filter) {
-            // 去掉默认的id过滤器
-            $filter->disableIdFilter();
-
-            $filter->column(1 / 2, function ($filter) {
-                $filter->like('title', __('Title'));
-                if (Admin::user()->isAdministrator()) {
-                    $filter->like('user.name', __('Author'));
-                }
-            });
-            $filter->column(1 / 2, function ($filter) {
-                $filter->date('created_at', __('Created at'));
-                $filter->date('updated_at', __('Updated at'));
-            });
+        //搜索
+        $grid->quickSearch('title')->placeholder('搜索标题...');
+        //分类,作者选择器
+        $grid->selector(function (Grid\Tools\Selector $selector) {
+            global $isAdmin;
+            $selector->select('category_id', __('Category'),Category::pluck('name', 'id'));
+            if ($isAdmin) {
+                $selector->select('user_id', __('Author'),User::pluck('name', 'id'));
+            }
         });
 
         return $grid;
@@ -118,15 +108,40 @@ class ArticleController extends AdminController
     {
         $form = new Form(new Article());
 
-        $form->text('title', __('Title'));
-        $form->number('user_id', __('Author'));
-        $form->number('category_id', __('Category'));
-        $form->text('description', __('Description'));
+        $form->setWidth(11, 1);
+        $form->column(12, function ($form) {
+            $form->text('title', __('Title'))
+                ->required();
+        });
+        $form->text('description', __('Description'))
+            ->required();
         $form->text('keywords', __('Keywords'));
-        $form->number('sort', __('Sort'));
-        $form->password('password', __('Password'));
-        $form->number('views', __('Views'));
-        $form->editormd('markdown');
+        $form->divider();
+        $form->column(4, function ($form) {
+            $form->select('category_id', __('Category'))
+                ->setWidth(9, 3)
+                ->options(function () {
+                    return Category::pluck('name', 'id');
+                });
+        });
+        $form->column(4, function ($form) {
+            $form->password('password', __('Password'))
+                ->setWidth(9, 3);
+        });
+        $form->column(4, function ($form) {
+            $form->number('sort', __('Sort'))
+                ->default(0)
+                ->min(0)
+                ->setWidth(9, 3);
+        });
+        $form->column(12, function ($form) {
+            $form->multipleSelect('tag', __('Tag'))
+                ->options([1 => 'foo', 2 => 'bar', 'val' => 'Option name']);
+        });
+        $form->column(12, function ($form) {
+            $form->editormd('markdown', __('内容'))
+                ->required();
+        });
 
         return $form;
     }
