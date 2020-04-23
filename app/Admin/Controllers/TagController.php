@@ -26,9 +26,15 @@ class TagController extends AdminController
     {
         $grid = new Grid(new Tag());
 
-        $grid->column('name', __('Name'));
-//        $grid->column('article_num', __('Article num'));
-        $grid->column('description', __('Description'));
+        $grid->column('name', __('Name'))
+            ->badge('purple');;
+        $grid->column('articles', __('Article amount'))
+            ->display(function ($articles) {
+                $count = count($articles);
+                return "{$count}&nbsp;篇";
+            })->label('primary');
+        $grid->column('description', __('Description'))
+            ->limit(40);
         $grid->column('created_at', __('Created at'))
             ->date('Y-m-d H:i:s');
         $grid->column('updated_at', __('Updated at'))
@@ -72,8 +78,10 @@ class TagController extends AdminController
     {
         $form = new Form(new Tag());
 
-        $form->text('name', __('Name'));
-        $form->text('description', __('Description'));
+        $form->text('name', __('Name'))
+            ->required();
+        $form->text('description', __('Description'))
+            ->required();
 
         return $form;
     }
