@@ -26,6 +26,7 @@ Encore\Admin\Form::forget(['map', 'editor']);
 Grid::init(function (Grid $grid) {
     $grid->disableFilter();
     $grid->disableExport();
+    $grid->enableHotKeys();
     //为每一行添加序号
     $grid->column('number', __('Number'));
     $grid->rows(function ($row, $number) {
