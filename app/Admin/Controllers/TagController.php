@@ -15,7 +15,7 @@ class TagController extends AdminController
      *
      * @var string
      */
-    protected $title = '文章标签';
+    protected $title = '标签';
 
     /**
      * Make a grid builder.

@@ -15,7 +15,7 @@ class CategoryController extends AdminController
      *
      * @var string
      */
-    protected $title = '文章分类';
+    protected $title = '分类';
 
     /**
      * 创建分类表格

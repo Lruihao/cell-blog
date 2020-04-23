@@ -19,7 +19,7 @@ class ArticleController extends AdminController
      *
      * @var string
      */
-    protected $title = '文章管理';
+    protected $title = '文章';
 
     /**
      * 创建文章表格
