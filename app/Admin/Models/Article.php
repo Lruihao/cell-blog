@@ -35,7 +35,7 @@ class Article extends Model
     }
 
     /**
-     * 获取关联到文章的作者
+     * 关联文章作者
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
@@ -44,7 +44,7 @@ class Article extends Model
     }
 
     /**
-     * 获取关联到文章的分类
+     * 关联文章分类
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function category()
@@ -52,9 +52,13 @@ class Article extends Model
         return $this->belongsTo(Category::class);
     }
 
+    /**
+     * 关联文章标签
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function tags()
     {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class, "article_tags");
     }
 
 }

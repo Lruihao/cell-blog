@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Admin\Models\Article;
 use App\Admin\Models\Category;
+use App\Admin\Models\Tag;
 use App\Admin\Models\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -39,19 +40,18 @@ class ArticleController extends AdminController
         $grid->model()->orderBy('sort', 'desc');
 
         $grid->column('title', __('Title'))
-            ->limit(30);
+            ->limit(40);
         $grid->column('user.name', __('Author'));
-        $grid->column('views', __('Views'))
-            ->hide();
-        //设置颜色，默认`success`,可选`danger`、`warning`、`info`、`primary`、`default`、`success`
         $grid->column('category.name', __('Category'))
-            ->label('primary');
+            ->badge('green');
+        $grid->column('views', __('Views'))
+            ->label('warning');
         $grid->column('sort', __('Sort'))
             ->sortable()
             ->replace([0 => '-'])
             ->help('最大值置顶')
             ->editable()
-            ->hide();
+            ->label('default');
         $grid->column('created_at', __('Created at'))
             ->date('Y-m-d H:i:s');
         $grid->column('updated_at', __('Updated at'))
@@ -111,16 +111,15 @@ class ArticleController extends AdminController
             $form->text('title', __('Title'))
                 ->required();
         });
-        $form->text('description', __('Description'))
+        $form->textarea('description', __('Description'))
             ->required();
         $form->text('keywords', __('Keywords'));
         $form->divider();
         $form->column(4, function ($form) {
             $form->select('category_id', __('Category'))
                 ->setWidth(9, 3)
-                ->options(function () {
-                    return Category::pluck('name', 'id');
-                });
+                ->options(Category::pluck('name', 'id'))
+                ->ajax('/admin/select/categories');
         });
         $form->column(4, function ($form) {
             $form->password('password', __('Password'))
@@ -133,13 +132,13 @@ class ArticleController extends AdminController
                 ->setWidth(9, 3);
         });
         $form->column(12, function ($form) {
-            $form->multipleSelect('tag', __('Tag'))
-                ->options([1 => 'foo', 2 => 'bar', 'val' => 'Option name']);
+            $form->multipleSelect('tags', __('Tag'))
+                ->options(Tag::pluck('name', 'id'))
+                ->ajax('/admin/select/tags');
         });
-        $form->column(12, function ($form) {
-            $form->editormd('markdown', __('内容'))
-                ->required();
-        });
+        $form->divider();
+        $form->editormd('markdown', __('内容'))
+            ->required();
 
         return $form;
     }
