@@ -11,13 +11,14 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index')->name('admin.home');
+    $router->get('/select/categories', 'SelectController@categories');
+    $router->get('/select/tags', 'SelectController@tags');
     $router->resource('articles', ArticleController::class);
     $router->resource('categories', CategoryController::class);
     $router->resource('tags', TagController::class);
-    $router->resource('pages', PageController::class);
     $router->resource('navigations', NavigationController::class);
+    $router->resource('systems', SystemController::class);
+    $router->resource('pages', PageController::class);
     $router->resource('friendship-links', FriendshipLinkController::class);
-    $router->get('/select/categories', 'SelectController@categories');
-    $router->get('/select/tags', 'SelectController@tags');
 
 });
