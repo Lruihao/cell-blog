@@ -26,6 +26,7 @@ class SystemController extends AdminController
     {
         $grid = new Grid(new System());
 
+        $grid->column('name', __('Name'));
         $grid->column('system_key', __('System key'));
         $grid->column('system_value', __('System value'));
         $grid->column('created_at', __('Created at'))
@@ -33,7 +34,7 @@ class SystemController extends AdminController
         $grid->column('updated_at', __('Updated at'))
             ->date('Y-m-d H:i:s');
 
-        $grid->quickSearch('name')->placeholder('搜索设置   ...');
+        $grid->quickSearch('name')->placeholder('搜索设置...');
 
         return $grid;
     }
@@ -49,6 +50,7 @@ class SystemController extends AdminController
         $show = new Show(System::findOrFail($id));
 
         $show->field('id', __('Id'));
+        $show->field('name', __('Name'));
         $show->field('system_key', __('System key'));
         $show->field('system_value', __('System value'));
         $show->field('created_at', __('Created at'));
@@ -66,8 +68,12 @@ class SystemController extends AdminController
     {
         $form = new Form(new System());
 
-        $form->text('system_key', __('System key'));
-        $form->text('system_value', __('System value'));
+        $form->text('name', __('Name'))
+            ->required();
+        $form->text('system_key', __('System key'))
+            ->required();
+        $form->text('system_value', __('System value'))
+            ->required();
 
         return $form;
     }

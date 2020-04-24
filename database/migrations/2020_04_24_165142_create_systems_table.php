@@ -14,10 +14,10 @@ class CreateSystemsTable extends Migration
     public function up()
     {
         Schema::create('systems', function (Blueprint $table) {
-            $table->increments('id')->comment('博客设置主键');
-            $table->string('system_key', 30)->comment('博客设置项');
-            $table->string('system_value')->comment('博客设置值');
-            $table->unique('system_key');
+            $table->increments('id')->comment('设置主键');
+            $table->string('name', 30)->comment('设置名称');
+            $table->string('system_key', 30)->unique()->comment('设置项');
+            $table->string('system_value')->comment('设置值');
             $table->timestamps();
         });
     }
