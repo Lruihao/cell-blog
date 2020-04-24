@@ -34,7 +34,7 @@ class NavigationController extends AdminController
             ->sortable()
             ->replace([0 => '-'])
             ->editable()
-            ->label('default');;
+            ->label('default');
         $grid->column('created_at', __('Created at'))
             ->date('Y-m-d H:i:s');
         $grid->column('updated_at', __('Updated at'))
@@ -56,9 +56,9 @@ class NavigationController extends AdminController
         $show = new Show(Navigation::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('sort', __('Sort'));
         $show->field('name', __('Name'));
         $show->field('url', __('Url'));
+        $show->field('sort', __('Sort'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
