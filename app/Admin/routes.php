@@ -14,6 +14,7 @@ Route::group([
     $router->resource('articles', ArticleController::class);
     $router->resource('categories', CategoryController::class);
     $router->resource('tags', TagController::class);
+    $router->resource('pages', PageController::class);
     $router->resource('navigations', NavigationController::class);
     $router->resource('friendship-links', FriendshipLinkController::class);
     $router->get('/select/categories', 'SelectController@categories');
