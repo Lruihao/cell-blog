@@ -3,7 +3,6 @@
 /public/hot
 /public/storage
 /public/uploads
-/public/vendor
 /storage/*.key
 /vendor
 /.idea
