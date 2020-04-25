@@ -411,7 +411,11 @@ return [
                     'height' => 600,
                     'emoji' => true,
                     'imageUpload' => true,
-                    'imageUploadURL' => '/admin/editor/upload-image'
+                    'imageUploadURL' => '/admin/editor/upload-image',
+                    'placeholder' => '输入 Markdown内容，开始编辑...',
+                    'tocm' => true,
+                    'tocDropdown' => false,
+                    'taskList' => true
                 ]
         ]
     ],
