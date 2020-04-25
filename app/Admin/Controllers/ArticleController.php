@@ -136,7 +136,6 @@ class ArticleController extends AdminController
                 ->options(Tag::pluck('name', 'id'))
                 ->ajax('/admin/select/tags');
         });
-        $form->divider();
         $form->editormd('markdown', __('内容'))
             ->required();
 

@@ -79,6 +79,13 @@ class PageController extends AdminController
             $form->text('title', __('Title'))
                 ->required();
         });
+        $form->column(12,function ($form){
+            $form->textarea('description', __('Description'))
+                ->required();
+        });
+        $form->text('keywords', __('Keywords'))
+            ->required();
+        $form->divider();
         $form->column(6,function ($form){
             $form->text('link_alias', __('Link alias'))
                 ->setWidth(10, 2)
@@ -88,14 +95,10 @@ class PageController extends AdminController
             $form->password('password', __('Password'))
                 ->setWidth(10, 2);
         });
-        $form->column(12,function ($form){
-            $form->text('description', __('Description'))
+        $form->column(12,function ($form) {
+            $form->editormd('markdown', __('内容'))
                 ->required();
         });
-        $form->text('keywords', __('Keywords'))
-            ->required();
-        $form->editormd('markdown', __('内容'))
-            ->required();
 
         return $form;
     }
