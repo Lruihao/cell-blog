@@ -2,12 +2,11 @@
 
 namespace App\Admin\Controllers;
 
-use Encore\Admin\Controllers\AdminController;
 use App\Admin\Models\Category;
 use App\Admin\Models\Tag;
 use Illuminate\Http\Request;
 
-class SelectController extends AdminController
+class SelectController
 {
     /**
      * 异步加载分类

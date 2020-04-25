@@ -11,8 +11,9 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index')->name('admin.home');
-    $router->get('/select/categories', 'SelectController@categories');
-    $router->get('/select/tags', 'SelectController@tags');
+    $router->get('select/categories', 'SelectController@categories');
+    $router->get('select/tags', 'SelectController@tags');
+    $router->post('editor/upload-image', 'EditorImageController@upload');
     $router->resource('articles', ArticleController::class);
     $router->resource('categories', CategoryController::class);
     $router->resource('tags', TagController::class);

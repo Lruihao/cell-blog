@@ -62,9 +62,9 @@ class ArticleController extends AdminController
         //分类,作者选择器
         $grid->selector(function (Grid\Tools\Selector $selector) {
             global $isAdmin;
-            $selector->select('category_id', __('Category'),Category::pluck('name', 'id'));
+            $selector->select('category_id', __('Category'), Category::pluck('name', 'id'));
             if ($isAdmin) {
-                $selector->select('user_id', __('Author'),User::pluck('name', 'id'));
+                $selector->select('user_id', __('Author'), User::pluck('name', 'id'));
             }
         });
 
@@ -142,4 +142,5 @@ class ArticleController extends AdminController
 
         return $form;
     }
+
 }
