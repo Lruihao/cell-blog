@@ -19,6 +19,7 @@ class CreatePagesTable extends Migration
             $table->string('link_alias', 100)->nullable()->comment('链接别名');
             $table->string('keywords')->default('')->comment('关键词');
             $table->string('description')->default('')->comment('描述');
+            $table->string('password')->nullable()->default('')->comment('页面密码');
             $table->longText('markdown')->comment('markdown页面内容');
             $table->longText('html')->comment('markdown转的html页面');
             $table->timestamps();

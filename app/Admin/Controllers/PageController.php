@@ -56,6 +56,7 @@ class PageController extends AdminController
         $show->field('link_alias', __('Link alias'));
         $show->field('keywords', __('Keywords'));
         $show->field('description', __('Description'));
+        $show->field('password', __('Password'));
         $show->field('markdown', __('Markdown'));
         $show->field('html', __('Html'));
         $show->field('created_at', __('Created at'));
@@ -74,12 +75,23 @@ class PageController extends AdminController
         $form = new Form(new Page());
 
         $form->setWidth(11, 1);
-        $form->text('title', __('Title'))
-            ->required();
-        $form->text('link_alias', __('Link alias'))
-            ->required();
-        $form->text('description', __('Description'))
-            ->required();
+        $form->column(12,function ($form){
+            $form->text('title', __('Title'))
+                ->required();
+        });
+        $form->column(6,function ($form){
+            $form->text('link_alias', __('Link alias'))
+                ->setWidth(10, 2)
+                ->required();
+        });
+        $form->column(6,function ($form){
+            $form->password('password', __('Password'))
+                ->setWidth(10, 2);
+        });
+        $form->column(12,function ($form){
+            $form->text('description', __('Description'))
+                ->required();
+        });
         $form->text('keywords', __('Keywords'))
             ->required();
         $form->editormd('markdown', __('内容'))
