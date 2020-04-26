@@ -13,7 +13,7 @@ class EditorImageController
      */
     public function upload()
     {
-        $result = UploadApi::image('editormd-image-file', 'storage/images');
+        $result = UploadApi::image('editormd-image-file', 'storage/editor-images');
         if ($result['status_code'] === 200) {
             $data = [
                 'success' => 1,

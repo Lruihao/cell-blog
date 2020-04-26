@@ -66,8 +66,8 @@ return [
         //后台文件上传
         'admin' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'root' => storage_path('app/public/system'),
+            'url' => env('APP_URL').'/storage/system',
             'visibility' => 'public',
         ],
 
