@@ -52,6 +52,7 @@ return [
     'delete_failed'         => '删除失败 !',
     'update_succeeded'      => '更新成功 !',
     'save_succeeded'        => '保存成功 !',
+    'upload_succeeded'      => '上传成功 !',
     'refresh_succeeded'     => '刷新成功 !',
     'login_successful'      => '登录成功 !',
     'choose'                => '选择',
