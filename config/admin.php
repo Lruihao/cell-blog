@@ -300,7 +300,7 @@ return [
     | This value is used to set the background image of login page.
     |
     */
-    'login_background_image' => 'https://lruihao.cn/images/bg.jpg',
+    'login_background_image' => '/images/background.jpg',
 
     /*
     |--------------------------------------------------------------------------
