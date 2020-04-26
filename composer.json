@@ -17,6 +17,7 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "league/commonmark-ext-table": "^2.1",
+        "mews/captcha": "^3.1",
         "sharemant/laravel-admin-ext-editormd": "^1.0"
     },
     "require-dev": {
