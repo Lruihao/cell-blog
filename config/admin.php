@@ -415,7 +415,8 @@ return [
                     'placeholder' => '输入 Markdown内容，开始编辑...',
                     'tocm' => true,
                     'tocDropdown' => false,
-                    'taskList' => true
+                    'taskList' => true,
+                    'autoFocus' => false
                 ]
         ]
     ],

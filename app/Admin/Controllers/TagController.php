@@ -80,6 +80,7 @@ class TagController extends AdminController
         $form = new Form(new Tag());
 
         $form->text('name', __('Name'))
+            ->autofocus()
             ->required();
         $form->text('description', __('Description'))
             ->required();

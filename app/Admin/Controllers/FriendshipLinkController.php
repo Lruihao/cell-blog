@@ -73,8 +73,11 @@ class FriendshipLinkController extends AdminController
     {
         $form = new Form(new FriendshipLink());
 
-        $form->text('name', __('Name'));
-        $form->url('url', __('Url'));
+        $form->text('name', __('Name'))
+            ->autofocus()
+            ->required();
+        $form->url('url', __('Url'))
+            ->required();
         $form->number('sort', __('Sort'))
             ->default(0)
             ->min(0);

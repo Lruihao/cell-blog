@@ -70,6 +70,7 @@ class SystemController extends AdminController
         $form = new Form(new System());
 
         $form->text('name', __('Name'))
+            ->autofocus()
             ->required();
         $form->text('system_key', __('System key'))
             ->required();

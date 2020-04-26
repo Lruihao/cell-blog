@@ -110,6 +110,7 @@ class ArticleController extends AdminController
         $form->setWidth(11, 1);
         $form->column(12, function ($form) {
             $form->text('title', __('Title'))
+                ->autofocus()
                 ->required();
         });
         $form->textarea('description', __('Description'))
