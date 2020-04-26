@@ -28,6 +28,7 @@ class NavigationController extends AdminController
 
         $grid->model()->orderBy('sort', 'desc');
 
+        $grid->column('number', __('Number'));
         $grid->column('name', __('Name'));
         $grid->column('url', __('Url'));
         $grid->column('sort', __('Sort'))

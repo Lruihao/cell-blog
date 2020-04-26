@@ -26,6 +26,7 @@ class SystemController extends AdminController
     {
         $grid = new Grid(new System());
 
+        $grid->column('number', __('Number'));
         $grid->column('name', __('Name'));
         $grid->column('system_key', __('System key'));
         $grid->column('system_value', __('System value'));

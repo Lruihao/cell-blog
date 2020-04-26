@@ -26,6 +26,7 @@ class CategoryController extends AdminController
     {
         $grid = new Grid(new Category());
 
+        $grid->column('number', __('Number'));
         $grid->column('name', __('Name'))
             ->badge('green');
         $grid->column('articles', __('Article amount'))

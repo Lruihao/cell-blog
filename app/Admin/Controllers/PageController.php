@@ -26,6 +26,7 @@ class PageController extends AdminController
     {
         $grid = new Grid(new Page());
 
+        $grid->column('number', __('Number'));
         $grid->column('title', __('Title'))
             ->limit(40);
         $grid->column('link_alias', __('Link alias'));
