@@ -416,7 +416,8 @@ return [
                     'tocm' => true,
                     'tocDropdown' => false,
                     'taskList' => true,
-                    'autoFocus' => false
+                    'autoFocus' => false,
+                    'htmlDecode' => true
                 ]
         ]
     ],
