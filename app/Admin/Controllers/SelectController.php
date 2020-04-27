@@ -2,8 +2,8 @@
 
 namespace App\Admin\Controllers;
 
-use App\Admin\Models\Category;
-use App\Admin\Models\Tag;
+use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class SelectController

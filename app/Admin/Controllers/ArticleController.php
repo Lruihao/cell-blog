@@ -2,10 +2,10 @@
 
 namespace App\Admin\Controllers;
 
-use App\Admin\Models\Article;
-use App\Admin\Models\Category;
-use App\Admin\Models\Tag;
-use App\Admin\Models\User;
+use App\Models\Article;
+use App\Models\Category;
+use App\Models\Tag;
+use App\Models\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
