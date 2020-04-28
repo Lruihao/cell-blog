@@ -417,7 +417,10 @@ return [
                     'tocDropdown' => false,
                     'taskList' => true,
                     'autoFocus' => false,
-                    'htmlDecode' => true
+                    'tex' => false,
+                    'flowChart' => false,
+                    'htmlDecode' => false,
+                    'saveHTMLToTextarea' => false
                 ]
         ],
         'media-manager' => [

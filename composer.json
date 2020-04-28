@@ -18,7 +18,7 @@
         "laravel-admin-ext/media-manager": "^1.1",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-        "league/commonmark-ext-table": "^2.1",
+        "league/commonmark": "^1.4",
         "mews/captcha": "^3.1",
         "sharemant/laravel-admin-ext-editormd": "^1.0"
     },
