@@ -9,7 +9,8 @@
 @section('keywords', $systemPresenter->checkReturnValue('keywords', $article->keyword))
 
 @section('style')
-    <link rel="stylesheet" href="{{ asset('share.js/css/share.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('libs/share.js/css/share.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('libs/emojify.js/css/emojify.min.css') }}" />
 @endsection
 
 @section('header-text')
@@ -59,11 +60,14 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('share.js/js/jquery.share.min.js') }}"></script>
+    <script src="{{ asset('libs/share.js/js/jquery.share.min.js') }}"></script>
+    <script src="{{ asset('libs/emojify.js/js/emojify.min.js') }}"></script>
 
     <script>
         $(function(){
             $('#share').share({sites: ['qzone', 'qq', 'weibo','wechat']});
+            emojify.setConfig({img_dir : '../images/emojis'});
+            emojify.run();
         });
     </script>
 
