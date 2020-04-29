@@ -1,0 +1,20 @@
+
+.article-content {
+    padding: 40px 20px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4,
+.article-content h5,
+.article-content h6 {
+    margin: 20px 0 15px;
+    padding: 0;
+    font-weight: 700;
+    line-height: 1.5;
+    font-family: 'Comic Sans MS',Monda,"PingFang SC","Microsoft YaHei",sans-serif;
+}

@@ -15,8 +15,7 @@ class SystemPresenter
 
     public function __construct()
     {
-        $this->list = System::optionList();
-
+        $this->list = System::pluck('system_value', 'system_key');
     }
 
     /**
@@ -27,7 +26,7 @@ class SystemPresenter
      */
     public function getKeyValue($key)
     {
-        return isset($this->list[$key]) ? $this->list[$key] : '';
+        return $this->list[$key] ?? '';
     }
 
     /**

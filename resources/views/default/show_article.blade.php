@@ -10,7 +10,8 @@
 
 @section('style')
     <link rel="stylesheet" href="{{ asset('libs/share.js/css/share.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('libs/emojify.js/css/emojify.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('libs/emojify.js/css/emojify.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('default/css/article.css') }}"/>
 @endsection
 
 @section('header-text')
@@ -46,7 +47,7 @@
 @endsection
 
 @section('content')
-    <div class="markdown-preview">
+    <div class="article-content">
         {!! $article->html !!}
     </div>
 

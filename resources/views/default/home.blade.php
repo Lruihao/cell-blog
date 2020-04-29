@@ -9,15 +9,7 @@
 @section('keywords', $systemPresenter->getKeyValue('keywords'))
 
 @section('header-text')
-    <div class="text-inner">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="to-animate fadeInUp animated color-white">
-                    {{ $systemPresenter->getKeyValue('motto') }}
-                </h3>
-            </div>
-        </div>
-    </div>
+    <p class="lead fadeInUp animated">{{ $systemPresenter->getKeyValue('motto') }}</p>
 @endsection
 
 @section('content')

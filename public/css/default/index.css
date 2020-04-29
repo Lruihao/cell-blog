@@ -1,0 +1,106 @@
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    font-family: 'Comic Sans MS',Monda,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+body {
+    background-image: url('/images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: bottom;
+}
+a {
+    color: #555;
+    outline: 0;
+    word-wrap: break-word;
+}
+a:hover {
+    color: #222;
+    border-bottom-color: #222;
+}
+
+.main {
+    background: rgba(255,255,255,0.5);
+}
+
+.jumbotron,
+.content,
+.sidebar {
+    background: rgba(255,255,255,0.3);
+    box-shadow: 0 0 14px #cacbcb;
+}
+
+.content .pagination{
+    justify-content: center;
+}
+.article-list li {
+    background: rgba(255,255,255,0.3);
+    box-shadow: 0 0 14px #cacbcb;
+}
+.article-list .title {
+    font-size: 21px;
+    border-left: #649ab6 2px solid;
+    padding-left: 10px;
+    word-break: break-word;
+}
+.article-list .title-link {
+    display: inline-block;
+    position: relative;
+    color: #555;
+    border-bottom: none;
+    line-height: 1.5;
+    vertical-align: top;
+    text-decoration: none;
+}
+.article-list .title-link:hover::before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    transform: scaleX(1);
+}
+.article-list .title-link::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0);
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+.article-list .description {
+    word-break:break-all;
+    color:#616161;
+}
+.article-list .info {
+    margin: 3px 0 10px;
+    color: #999;
+    font-family: Monda,"PingFang SC","Microsoft YaHei",sans-serif;
+    font-size: 12px;
+}
+.article-list .sticky-flag {
+    display: inline-block;
+    font-size: 1rem;
+    transform: rotate(30deg);
+}
+.article-btn .btn {
+    border-radius: 1rem;
+    font-size: 0.9rem;
+}
+.article-btn .btn:hover {
+    color: #fff;
+    background: #34495e;
+}

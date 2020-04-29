@@ -20,7 +20,7 @@ class HomeController extends Controller
             ])
             ->orderBy('sort','desc')
             ->orderBy('id', 'desc')
-            ->paginate();
+            ->paginate(6);
 
         return view('default.home', compact('articles'));
     }
