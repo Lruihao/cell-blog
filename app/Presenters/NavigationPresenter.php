@@ -20,6 +20,6 @@ class NavigationPresenter
     {
         return Navigation::query()
             ->orderBy('sort', 'desc')
-            ->get( ['name', 'url']);
+            ->get(['name', 'url', 'icon', 'target']);
     }
 }

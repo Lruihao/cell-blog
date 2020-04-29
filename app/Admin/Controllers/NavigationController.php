@@ -31,6 +31,9 @@ class NavigationController extends AdminController
         $grid->column('number', __('Number'));
         $grid->column('name', __('Name'));
         $grid->column('url', __('Url'));
+        $grid->column('icon', __('Icon'))->display(function (){
+            return "<i class='fa fa-{$this->icon}'></i>";
+        });
         $grid->column('sort', __('Sort'))
             ->sortable()
             ->replace([0 => '-'])
@@ -59,6 +62,7 @@ class NavigationController extends AdminController
         $show->field('id', __('Id'));
         $show->field('name', __('Name'));
         $show->field('url', __('Url'));
+        $show->field('icon', __('Icon'));
         $show->field('sort', __('Sort'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
@@ -80,6 +84,11 @@ class NavigationController extends AdminController
             ->required();
         $form->text('url', __('Url'))
             ->required();
+        $form->text('icon', __('Icon'))
+            ->default('globe')
+            ->help('FontAwesome Solid icon');
+        $form->switch('target', __('Target'))
+            ->default(0);
         $form->number('sort', __('Sort'))
             ->default(0)
             ->min(0)

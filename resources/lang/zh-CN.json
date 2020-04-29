@@ -19,5 +19,7 @@
   "Link alias": "链接别名",
   "System key": "设置项",
   "System value": "设置值",
-  "Media manager": "文件管理"
+  "Media manager": "文件管理",
+  "Icon": "图标",
+  "Target": "外部链接"
 }
