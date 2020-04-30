@@ -75,7 +75,7 @@ class SystemController extends AdminController
             ->required();
         $form->text('system_key', __('System key'))
             ->required();
-        $form->text('system_value', __('System value'))
+        $form->textarea('system_value', __('System value'))
             ->required();
 
         return $form;
