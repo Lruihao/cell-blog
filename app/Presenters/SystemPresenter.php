@@ -41,7 +41,7 @@ class SystemPresenter
         if ($defaultValue != "") {
             return $defaultValue;
         }
-
+        //为空时返回系统设置值
         return $this->getKeyValue($key);
     }
 }

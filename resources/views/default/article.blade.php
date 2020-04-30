@@ -11,14 +11,15 @@
                     </a>
                 </h2>
                 <p class="info">
-                    <span data-toggle="tooltip" data-placement="right" title="{{ date('Y-m-d H:i:s', strtotime($article->created_at)) }}">
-                        <i class="fas fa-calendar-alt text-secondary"></i>
+                    <span>
+                        <i class="fas fa-calendar text-secondary" data-toggle="tooltip" data-placement="right"
+                           title="{{ date('Y-m-d H:i:s', strtotime($article->created_at)) }}"></i>
                         {{ date('Y-m-d', strtotime($article->created_at)) }}
                     </span>
                     @if($article->category)
-                    <span class="m-1">|</span>
+                    <span class="mx-1">|</span>
                     <span>
-                        <i class="fas fa-folder text-secondary"></i>
+                        <i class="fas fa-folder text-secondary" data-toggle="tooltip" data-placement="right" title="分类"></i>
                         <a href="{{ route('category', ['id' => $article->category_id]) }}">
                             {{ $article->category->name }}
                         </a>
@@ -26,7 +27,8 @@
                     @endif
                     <span class="m-1">|</span>
                     <span>
-                        <i class="fas fa-eye text-secondary"></i> {{ $article->views }} views
+                        <i class="fas fa-eye text-secondary" data-toggle="tooltip" data-placement="right" title="阅读数"></i>
+                        {{ $article->views }} views
                     </span>
                 </p>
                 <p class="description my-2">

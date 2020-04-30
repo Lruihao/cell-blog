@@ -1,10 +1,9 @@
-
-.article-content {
-    padding: 40px 20px;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.1);
-    border: 1px solid #ddd;
-}
+/**
+ * @Name: article.css
+ * @Description: 文章内容样式
+ * @Author: 李瑞豪
+ * @Update: 2020-4-30 22:46
+ */
 
 .article-content h1,
 .article-content h2,
@@ -17,4 +16,16 @@
     font-weight: 700;
     line-height: 1.5;
     font-family: 'Comic Sans MS',Monda,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+.article-info {
+    font-size: 0.9rem;
+}
+.article-tag {
+    font-family: 'Comic Sans MS',Monda,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+.article-tag:hover {
+    text-decoration: none;
+}
+.article-copyright {
+    font-size: 0.85rem;
 }
