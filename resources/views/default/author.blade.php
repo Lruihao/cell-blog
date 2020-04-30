@@ -22,7 +22,7 @@
             }
         @endphp
         @if ($github_url != "")
-            <span title="Github → {{ $github_url }}" class="social-item">
+            <span title="{{ $github_url }}" data-toggle="tooltip" data-placement="bottom" class="social-item">
                 <a href="{{ $github_url }}" target="_blank" class="social-link" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-github"></i>
                     Github
@@ -30,7 +30,7 @@
             </span>
         @endif
         @if ($weibo_url != "")
-            <span title="微博 → {{ $weibo_url }}" class="social-item">
+            <span title="{{ $weibo_url }}" data-toggle="tooltip" data-placement="bottom" class="social-item">
                 <a href="{{ $weibo_url }}" target="_blank" class="social-link" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-weibo"></i>
                     Weibo
