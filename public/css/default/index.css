@@ -1,4 +1,11 @@
+/**
+ * @Name: index.css
+ * @Description: 博客首页样式
+ * @Author: 李瑞豪
+ * @Update: 2020-4-30 14:39
+ */
 
+/* public */
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
@@ -23,18 +30,14 @@ a:hover {
     border-bottom-color: #222;
 }
 
+/* jumbotron及文章列表 */
 .main {
     background: rgba(255,255,255,0.5);
 }
-
 .jumbotron, .content, .sidebar,
 .article-list li, .card{
     background: rgba(255,255,255,0.3);
     box-shadow: 0 0 14px #cacbcb;
-}
-
-.content .pagination{
-    justify-content: center;
 }
 .article-list .title {
     font-size: 21px;
@@ -101,6 +104,18 @@ a:hover {
     background: #34495e;
 }
 
+/* 分页导航 */
+.pagination {
+    justify-content: center;
+}
+.page-link{
+    color: #3f6fa0;
+}
+.page-item.active .page-link{
+    background: #3f6fa0;
+}
+
+/* 侧栏 */
 .sidebar {
     font-family: 'Comic Sans MS',Monda,"PingFang SC","Microsoft YaHei",sans-serif;
 }
