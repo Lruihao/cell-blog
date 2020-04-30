@@ -11,6 +11,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: bottom;
+    font-family: Monda,"PingFang SC","Microsoft YaHei",sans-serif;
 }
 a {
     color: #555;
@@ -26,19 +27,14 @@ a:hover {
     background: rgba(255,255,255,0.5);
 }
 
-.jumbotron,
-.content,
-.sidebar {
+.jumbotron, .content, .sidebar,
+.article-list li, .card{
     background: rgba(255,255,255,0.3);
     box-shadow: 0 0 14px #cacbcb;
 }
 
 .content .pagination{
     justify-content: center;
-}
-.article-list li {
-    background: rgba(255,255,255,0.3);
-    box-shadow: 0 0 14px #cacbcb;
 }
 .article-list .title {
     font-size: 21px;
@@ -84,12 +80,12 @@ a:hover {
 .article-list .description {
     word-break:break-all;
     color:#616161;
+    font-size: 0.9rem;
 }
 .article-list .info {
     margin: 3px 0 10px;
     color: #999;
-    font-family: Monda,"PingFang SC","Microsoft YaHei",sans-serif;
-    font-size: 12px;
+    font-size: 0.75rem;
 }
 .article-list .sticky-flag {
     display: inline-block;
@@ -103,4 +99,46 @@ a:hover {
 .article-btn .btn:hover {
     color: #fff;
     background: #34495e;
+}
+
+.sidebar {
+    font-family: 'Comic Sans MS',Monda,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+.card {
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+.card-header {
+    background: rgba(255, 255, 255, 0.5);
+}
+.card-title {
+    font-size: 1rem;
+    margin: 0;
+}
+.author-avatar {
+    max-width: 100px;
+    transition: all 1s;
+}
+.author-avatar:hover {
+    transform: rotate(360deg) scale(1.1);
+}
+.social-item {
+    font-size: 0.9rem;
+    padding: 0 0.25rem;
+    border-radius: 0.25rem;
+}
+.social-item:hover {
+    background: #eee;
+}
+.social-link:hover,
+.tag-item:hover,
+.category-item:hover {
+    text-decoration: none;
+}
+.hot-list li,
+.link-list li {
+    font-size: 0.9rem;
+}
+.link-list li {
+    background: none;
 }

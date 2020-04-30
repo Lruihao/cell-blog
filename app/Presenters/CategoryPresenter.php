@@ -11,6 +11,15 @@ use App\Models\Category;
  */
 class CategoryPresenter
 {
+    /**
+     * 获取分类列表
+     *
+     * @return mixed
+     */
+    public function categoryList()
+    {
+        return Category::query()->get(['id', 'name']);
+    }
 
     /**
      * category selects

@@ -17,6 +17,7 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="{{ asset('libs/fontawesome5.11.2/css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('libs/fontawesome5.11.2/css/solid.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('libs/fontawesome5.11.2/css/brands.min.css') }}">
 
     <!-- Animate.css -->
     <link rel="stylesheet" href="{{ asset('css/default/animate.css') }}">
@@ -25,13 +26,11 @@
 
     <link rel="stylesheet" href="{{ asset('css/default/index.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('libs/highlight.js/css/tomorrow-night-eighties.css') }}">
-
 </head>
 
 <body>
 @inject('systemPresenter', 'App\Presenters\SystemPresenter')
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark position-sticky sticky-top">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark position-sticky sticky-top">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ url('images/brand.svg') }}" width="30" height="30" class="d-inline-block align-top" alt="Cell-Blog">
@@ -52,18 +51,19 @@
     </div>
     <div class='row mx-0 mt-1 mt-sm-3'>
         <div class='col-md-8 px-0 my-1'>
-            <div class="content mr-sm-2 px-1 py-4 rounded">
+            <div class="content mr-sm-2 p-1 pt-4 rounded">
                 @yield('content')
             </div>
         </div>
         <div class='col-md-4 px-0 my-1'>
-            <div class="sidebar ml-sm-2 rounded">
+            <div class="sidebar ml-sm-2 p-1 p-sm-2 rounded">
+                @php
+                    $colorList = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
+                @endphp
                 @include('default.author')
-
+                @include('default.category')
                 @include('default.tag')
-
                 @include('default.hot')
-
                 @include('default.link')
             </div>
         </div>
@@ -76,11 +76,8 @@
 <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 <!-- Bootstrap -->
 <script src="{{ asset('libs/bootstrap4.3/js/bootstrap.bundle.min.js') }}"></script>
-<!-- highlight -->
-<script src="{{ asset('libs/highlight.js/js/highlight.min.js') }}"></script>
 
 <script>
-  hljs.initHighlightingOnLoad();
   $('[data-toggle="tooltip"]').tooltip();
 </script>
 

@@ -1,17 +1,23 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">标签</h3>
+@inject('tagPresenter', 'App\Presenters\TagPresenter')
+@php
+    $tagList = $tagPresenter->tagList();
+@endphp
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">
+            <i class="fas fa-tags text-success"></i>
+            共 {{ count($tagList) }} 个标签
+        </h3>
     </div>
-    <div class="panel-body">
-        @inject('tagPresenter', 'App\Presenters\TagPresenter')
-
-        <?php $tagList = $tagPresenter->tagList();?>
-        @if ($tagList)
-            @foreach ($tagList as $tl)
-                <span style="padding: 5px;">
-                    <a href="{{ route('tag', ['id' => $tl->id]) }}">{{ $tl->name }}</a>
-                </span>
-            @endforeach
-        @endif
+    <div class="card-body">
+        <ul class="list-inline">
+            @forelse ($tagList as $tag)
+                <li class="list-inline-item badge badge-pill badge-{{ $colorList[$loop->index % 8] }}">
+                    <a href="{{ route('tag', ['id' => $tag->id]) }}" class="tag-item">{{ $tag->name }}</a>
+                </li>
+            @empty
+                <p class="card-text">暂无标签！</p>
+            @endforelse
+        </ul>
     </div>
 </div>

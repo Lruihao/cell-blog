@@ -11,6 +11,7 @@
 @section('style')
     <link rel="stylesheet" href="{{ asset('libs/share.js/css/share.min.css') }}">
     <link rel="stylesheet" href="{{ asset('libs/emojify.js/css/emojify.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('libs/highlight.js/css/tomorrow-night-eighties.css') }}">
     <link rel="stylesheet" href="{{ asset('default/css/article.css') }}"/>
 @endsection
 
@@ -63,12 +64,14 @@
 @section('script')
     <script src="{{ asset('libs/share.js/js/jquery.share.min.js') }}"></script>
     <script src="{{ asset('libs/emojify.js/js/emojify.min.js') }}"></script>
+    <script src="{{ asset('libs/highlight.js/js/highlight.min.js') }}"></script>
 
     <script>
         $(function(){
             $('#share').share({sites: ['qzone', 'qq', 'weibo','wechat']});
             emojify.setConfig({img_dir : '../images/emojis'});
             emojify.run();
+            hljs.initHighlightingOnLoad();
         });
     </script>
 

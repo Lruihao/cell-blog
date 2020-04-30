@@ -1,34 +1,41 @@
-<div class="panel panel-default author">
+<div class="card author">
     @inject('userPresenter', 'App\Presenters\UserPresenter')
-    <?php
+    @php
         $author = isset($user->id) ? $user : $userPresenter->getUserInfo();
-    ?>
-    <div class="panel-heading">
-        <h3 class="panel-title">{{ $author->name }}</h3>
+    @endphp
+    <div class="card-header">
+        <h3 class="card-title">
+            <i class="fas fa-address-card text-primary"></i>
+            {{ $author->name }}
+        </h3>
     </div>
-    <div class="panel-body">
-        <div class="row text-center">
-            <img src="{{ '/storage/system/'.$author->avatar }}" class="img-circle author-avatar" alt="User Image">
-        </div>
-        <div class="row text-center author-footer">
-            <?php
+    <div class="card-body text-center">
+        <img src="{{ '/storage/system/'.$author->avatar }}" class="author-avatar mx-auto d-block rounded-circle" alt="author avatar">
+    </div>
+    <div class="card-footer text-center">
+        @php
             $github_url = '';
             $weibo_url = '';
-            if (!isset($user->id) || $user->id == 1) { //临时
+            if (!isset($user->id) || $user->id == 1) {
                 $github_url = $systemPresenter->getKeyValue('github_url');
                 $weibo_url = $systemPresenter->getKeyValue('weibo_url');
             }
-            ?>
-            @if ($github_url != "")
-                <span class="icon-github" style="padding-left:20px;">
-                    <a href='{{ $github_url }}' target="_blank">GitHub</a>
-                </span>
-            @endif
-            @if ($weibo_url != "")
-                <span class="icon-sina-weibo" style="padding-left:20px;margin-left:10px;">
-                    <a href='{{ $weibo_url }}' target="_blank">Weibo</a>
-                </span>
-            @endif
-        </div>
+        @endphp
+        @if ($github_url != "")
+            <span title="Github → {{ $github_url }}" class="social-item">
+                <a href="{{ $github_url }}" target="_blank" class="social-link" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                    Github
+                </a>
+            </span>
+        @endif
+        @if ($weibo_url != "")
+            <span title="微博 → {{ $weibo_url }}" class="social-item">
+                <a href="{{ $weibo_url }}" target="_blank" class="social-link" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-weibo"></i>
+                    Weibo
+                </a>
+            </span>
+        @endif
     </div>
 </div>
