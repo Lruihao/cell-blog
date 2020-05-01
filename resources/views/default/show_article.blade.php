@@ -9,10 +9,10 @@
 @section('keywords', $systemPresenter->checkReturnValue('keywords', $article->keywords))
 
 @section('style')
-    <link rel="stylesheet" href="{{ asset('libs/share.js/css/share.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('libs/emojify.js/css/emojify.min.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('libs/highlight.js/css/tomorrow-night-eighties.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/default/article.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('/libs/share.js/css/share.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/libs/emojify.js/css/emojify.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('/libs/highlight.js/css/tomorrow-night-eighties.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/article.css') }}"/>
 @endsection
 
 @section('header-text')
@@ -88,8 +88,10 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('libs/share.js/js/jquery.share.min.js') }}"></script>
-    <script src="{{ asset('libs/emojify.js/js/emojify.min.js') }}"></script>
-    <script src="{{ asset('libs/highlight.js/js/highlight.min.js') }}"></script>
-    <script src="{{ asset('js/article.js') }}"></script>
+    <script src="{{ asset('/libs/share.js/js/jquery.share.min.js') }}"></script>
+    <script src="{{ asset('/libs/emojify.js/js/emojify.min.js') }}"></script>
+    <script src="{{ asset('/libs/highlight.js/js/highlight.min.js') }}"></script>
+    <script src="{{ asset('/js/article.js') }}" defer></script>
+    <script src="{{ asset('/js/activate-power-mode.js') }}" defer></script>
+
 @endsection

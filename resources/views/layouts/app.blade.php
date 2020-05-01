@@ -9,16 +9,16 @@
     <meta name="author" content="Lruihao" />
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" href="{{ asset('/favicon.ico') }}">
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{ asset('libs/bootstrap4.3/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/libs/bootstrap4.3/css/bootstrap.min.css') }}">
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="{{ asset('libs/fontawesome5.11.2/css/fontawesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('libs/fontawesome5.11.2/css/solid.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('libs/fontawesome5.11.2/css/brands.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/libs/fontawesome5.11.2/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/libs/fontawesome5.11.2/css/solid.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/libs/fontawesome5.11.2/css/brands.min.css') }}">
     <!-- Animate.css -->
-    <link rel="stylesheet" href="{{ asset('libs/animate.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/default/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('/libs/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/index.css') }}">
 
     @yield('style')
 
@@ -68,14 +68,11 @@
 
 @include('default.footer')
 
-<script src="{{ asset('libs/jquery-3.4.1.min.js') }}"></script>
-<script src="{{ asset('libs/bootstrap4.3/js/bootstrap.bundle.min.js') }}"></script>
-<!-- 友链图标 -->
+<script src="{{ asset('/libs/jquery-3.4.1.min.js') }}"></script>
+<script src="{{ asset('/libs/bootstrap4.3/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('/js/love.min.js') }}" async defer></script>
+<script src="{{ asset('/js/index.js') }}" async defer></script>
 <script src="//at.alicdn.com/t/font_578712_g26jo2kbzd5qm2t9.js" async defer></script>
-{{--<script src="{{ asset('js/app.js') }}" async defer></script>--}}
-<script>
-  $('[data-toggle="tooltip"]').tooltip();
-</script>
 
 @yield('script')
 

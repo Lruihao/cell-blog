@@ -8,13 +8,13 @@
 /* public */
 * {
     outline:  none;
-    cursor: url('/images/default.cur'), auto;
+    cursor: url('/images/icons/default.cur'), auto;
 }
 :active {
-    cursor: url('/images/pointer.cur'), auto;
+    cursor: url('/images/icons/pointer.cur'), auto;
 }
 :link {
-    cursor: url('/images/pointer.cur'), auto;
+    cursor: url('/images/icons/pointer.cur'), auto;
 }
 h1, h2, h3, h4, h5, h6 {
     margin: 0;

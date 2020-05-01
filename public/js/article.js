@@ -6,4 +6,8 @@ $(function(){
     emojify.setConfig({img_dir : '../images/emojis'});
     emojify.run();
     hljs.initHighlightingOnLoad();
+    // input特效
+    POWERMODE.colorful = true; // make power mode colorful
+    POWERMODE.shake = false; // turn off shake
+    document.body.addEventListener('input', POWERMODE);
 });
