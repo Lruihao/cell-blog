@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateSystemsTable extends Migration
 {
     /**
-     * Run the migrations.
+     * 创建系统设置属性表
      *
      * @return void
      */
@@ -17,7 +17,7 @@ class CreateSystemsTable extends Migration
             $table->increments('id')->comment('设置主键');
             $table->string('name', 30)->comment('设置名称');
             $table->string('system_key', 30)->unique()->comment('设置项');
-            $table->string('system_value')->comment('设置值');
+            $table->text('system_value')->comment('设置值');
             $table->timestamps();
         });
     }

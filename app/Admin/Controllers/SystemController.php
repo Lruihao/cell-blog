@@ -30,6 +30,7 @@ class SystemController extends AdminController
         $grid->column('name', __('Name'));
         $grid->column('system_key', __('System key'));
         $grid->column('system_value', __('System value'))
+            ->limit(100)
             ->editable();
         $grid->column('created_at', __('Created at'))
             ->date('Y-m-d H:i:s');
