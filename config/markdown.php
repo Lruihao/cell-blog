@@ -44,9 +44,9 @@ return [
     'extensions' => [
         League\CommonMark\Extension\GithubFlavoredMarkdownExtension::class,
         League\CommonMark\Extension\ExternalLink\ExternalLinkExtension::class,
-        League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension::class,
         League\CommonMark\Extension\SmartPunct\SmartPunctExtension::class,
-        League\CommonMark\Extension\TableOfContents\TableOfContentsExtension::class
+//        League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension::class,
+//        League\CommonMark\Extension\TableOfContents\TableOfContentsExtension::class
     ],
 
     /*

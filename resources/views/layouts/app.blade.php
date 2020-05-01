@@ -10,21 +10,17 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
-
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('libs/bootstrap4.3/css/bootstrap.min.css') }}">
-
     <!-- FontAwesome -->
     <link rel="stylesheet" href="{{ asset('libs/fontawesome5.11.2/css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('libs/fontawesome5.11.2/css/solid.min.css') }}">
     <link rel="stylesheet" href="{{ asset('libs/fontawesome5.11.2/css/brands.min.css') }}">
-
     <!-- Animate.css -->
-    <link rel="stylesheet" href="{{ asset('css/default/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('libs/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/default/index.css') }}">
 
     @yield('style')
-
-    <link rel="stylesheet" href="{{ asset('css/default/index.css') }}">
 
 </head>
 
@@ -32,7 +28,7 @@
 @inject('systemPresenter', 'App\Presenters\SystemPresenter')
 <nav class="navbar navbar-expand-md navbar-dark bg-dark position-sticky sticky-top">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navbar-brand animated fast rubberBand" href="{{ url('/') }}">
             <img src="{{ url('images/brand.svg') }}" width="30" height="30" class="d-inline-block align-top" alt="Cell-Blog">
             {{ $systemPresenter->getKeyValue('blog_name') }}
         </a>
@@ -45,18 +41,18 @@
 
 <div class="container main p-1 p-sm-3 rounded">
     <div class="jumbotron text-center mb-0">
-        <div class="container">
+        <div class="container animated fast bounceInDown">
             @yield('header-text')
         </div>
     </div>
     <div class='row mx-0 mt-1 mt-sm-3'>
         <div class='col-md-8 px-0 my-1'>
-            <div class="content mr-sm-2 p-1 pt-4 rounded">
+            <div class="content mr-sm-2 p-1 pt-4 rounded animated fast fadeIn">
                 @yield('content')
             </div>
         </div>
         <div class='col-md-4 px-0 my-1'>
-            <div class="sidebar ml-sm-2 p-1 p-sm-2 rounded">
+            <div class="sidebar ml-sm-2 p-1 p-sm-2 rounded animated slow fadeIn">
                 @php
                     $colorList = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
                 @endphp
@@ -72,15 +68,16 @@
 
 @include('default.footer')
 
-<!-- jQuery -->
-<script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
-<!-- Bootstrap -->
+<script src="{{ asset('libs/jquery-3.4.1.min.js') }}"></script>
 <script src="{{ asset('libs/bootstrap4.3/js/bootstrap.bundle.min.js') }}"></script>
-
+<!-- 友链图标 -->
+<script src="//at.alicdn.com/t/font_578712_g26jo2kbzd5qm2t9.js" async defer></script>
+{{--<script src="{{ asset('js/app.js') }}" async defer></script>--}}
 <script>
   $('[data-toggle="tooltip"]').tooltip();
 </script>
 
 @yield('script')
+
 </body>
 </html>

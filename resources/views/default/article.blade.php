@@ -2,19 +2,19 @@
     <ul class="article-list list-unstyled px-sm-2">
         @foreach ($articles as $article)
             <li class="mb-1 mb-sm-3 p-4 rounded">
-                <h2 class='title font-weight-bold'>
+                <h1 class='title font-weight-bold'>
                     @if($loop->first and $article->sort)
                         <i class="fas fa-thumbtack sticky-flag" data-toggle="tooltip" data-placement="top" title="置顶"></i>
                     @endif
                     <a href="{{ route('article',['id' => $article->id]) }}" class="title-link">
                         {{$article->title}}
                     </a>
-                </h2>
+                </h1>
                 <p class="info">
                     <span>
                         <i class="fas fa-calendar text-secondary" data-toggle="tooltip" data-placement="right"
                            title="{{ date('Y-m-d H:i:s', strtotime($article->created_at)) }}"></i>
-                        {{ date('Y-m-d', strtotime($article->created_at)) }}
+                        <span>{{ date('Y-m-d', strtotime($article->created_at)) }}</span>
                     </span>
                     @if($article->category)
                     <span class="mx-1">|</span>

@@ -18,7 +18,6 @@ class LinkPresenter
      */
     public function linkList()
     {
-        $links = FriendshipLink::query()->orderBy('sort', 'desc')->get(['name','url']);
-        return $links;
+        return FriendshipLink::query()->orderBy('sort', 'desc')->get(['name','url']);
     }
 }

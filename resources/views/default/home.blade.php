@@ -9,7 +9,7 @@
 @section('keywords', $systemPresenter->getKeyValue('keywords'))
 
 @section('header-text')
-    <p class="lead fadeInUp animated">{{ $systemPresenter->getKeyValue('motto') }}</p>
+    <p class="lead welcome">{{ $systemPresenter->getKeyValue('welcome') }}</p>
 @endsection
 
 @section('content')

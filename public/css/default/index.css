@@ -6,10 +6,20 @@
  */
 
 /* public */
+* {
+    outline:  none;
+    cursor: url('/images/default.cur'), auto;
+}
+:active {
+    cursor: url('/images/pointer.cur'), auto;
+}
+:link {
+    cursor: url('/images/pointer.cur'), auto;
+}
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
-    line-height: 1.5;
+    line-height: 1.4;
     font-family: 'Comic Sans MS',Monda,"PingFang SC","Microsoft YaHei",sans-serif;
 }
 body {
@@ -29,18 +39,45 @@ a:hover {
     color: #222;
     border-bottom-color: #222;
 }
+/* 选中文字的颜色 */
+::selection {
+    background: #00CED1;
+    color: #fff;
+}
+/* CHROME浏览器中自定义滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track-piece {
+    background-color: #555;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: #1b1b1b;
+    -webkit-border-radius: 5px;
+}
+
 
 /* jumbotron及文章列表 */
 .main {
     background: rgba(255,255,255,0.5);
 }
-.jumbotron, .content, .sidebar,
+.jumbotron {
+    background: rgba(255,255,255,0.6);
+    box-shadow: 0 0 14px #cacbcb;
+}
+.content, .sidebar,
 .article-list li, .card{
     background: rgba(255,255,255,0.3);
     box-shadow: 0 0 14px #cacbcb;
 }
+.welcome {
+     font-size: 1.5rem;
+}
 .article-list .title {
-    font-size: 21px;
+    font-size: 22px;
     border-left: #649ab6 2px solid;
     padding-left: 10px;
     word-break: break-word;
@@ -117,6 +154,8 @@ a:hover {
 
 /* 侧栏 */
 .sidebar {
+    position: sticky;
+    top: 70px;
     font-family: 'Comic Sans MS',Monda,"PingFang SC","Microsoft YaHei",sans-serif;
 }
 .card {
@@ -156,4 +195,8 @@ a:hover {
 }
 .link-list li {
     background: none;
+}
+.link-avatar {
+    width: 1rem;
+    height: 1rem;
 }

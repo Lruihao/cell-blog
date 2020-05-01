@@ -1,12 +1,10 @@
-
-<?php
+@php
 $commentPlugin = $systemPresenter->getKeyValue('comment_plugin');
-$shortName = $systemPresenter->getKeyValue($commentPlugin.'_short_name');
-?>
-@if($commentPlugin !='' && $shortName != '')
-    @if($commentPlugin == 'duoshuo')
-        @include('default.comment.duoshuo')
-    @elseif($commentPlugin == 'disqus')
-        @include('default.comment.disqus')
+$appId = $systemPresenter->getKeyValue($commentPlugin.'_app_id');
+$appKey = $systemPresenter->getKeyValue($commentPlugin.'_app_key');
+@endphp
+@if($commentPlugin !='' && $appId != '' && $appKey!='')
+    @if($commentPlugin == 'valine')
+        @include('default.comment.valine')
     @endif
 @endif
