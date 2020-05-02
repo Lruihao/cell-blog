@@ -30,4 +30,13 @@ class PageController extends Controller
     {
         return $this->index('about');
     }
+
+    /**
+     * 留言页面
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function guestbook()
+    {
+        return $this->index('guestbook');
+    }
 }

@@ -24,9 +24,11 @@ Route::get('/tag/{id}', 'TagController@index')->name('tag');
 Route::get('/search', 'SearchController@index')->name('search');
 
 Route::permanentRedirect('/page/about', '/about');
+Route::permanentRedirect('/page/guestbook', '/guestbook');
 
 Route::get('/page/{alias}', 'PageController@index')->name('page.show');
 
 Route::get('/about', 'PageController@about')->name('about');
+Route::get('/guestbook', 'PageController@guestbook')->name('guestbook');
 
 Route::get('/rss', 'RssController@index')->name('rss');
