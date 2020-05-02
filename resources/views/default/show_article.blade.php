@@ -18,7 +18,7 @@
 @section('header-text')
     <div class="row">
         <div class="col-md-12">
-            <h1 class="display-4 mb-3">
+            <h1 class="display-5 mb-3">
                 {{ $article->title }}
             </h1>
             <div class="row article-info my-2 justify-content-center">
@@ -81,10 +81,12 @@
         </li>
     </ul>
     <div id="share" class="social-share mx-1 mx-sm-3 mb-4 text-center"></div>
-    <hr class="mb-4"/>
-    <!-- 评论插件 -->
-    <div class="comments mx-1 mx-sm-3 mb-4 rounded" id="comments"></div>
-    @include('default.comment.index')
+    @if($article->comments)
+        <hr class="mb-4"/>
+        <!-- 评论插件 -->
+        <div class="comments mx-1 mx-sm-3 mb-4 rounded" id="comments"></div>
+        @include('default.comment.index')
+    @endif
 @endsection
 
 @section('script')
@@ -93,5 +95,4 @@
     <script src="{{ asset('/libs/highlight.js/js/highlight.min.js') }}"></script>
     <script src="{{ asset('/js/article.js') }}" defer></script>
     <script src="{{ asset('/js/activate-power-mode.js') }}" defer></script>
-
 @endsection

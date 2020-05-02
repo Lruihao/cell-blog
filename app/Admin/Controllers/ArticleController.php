@@ -117,21 +117,26 @@ class ArticleController extends AdminController
             ->required();
         $form->text('keywords', __('Keywords'));
         $form->divider();
-        $form->column(4, function ($form) {
+        $form->column(3, function ($form) {
             $form->select('category_id', __('Category'))
-                ->setWidth(9, 3)
+                ->setWidth(8, 4)
                 ->options(Category::pluck('name', 'id'))
                 ->ajax('/admin/select/categories');
         });
-        $form->column(4, function ($form) {
+        $form->column(3, function ($form) {
             $form->password('password', __('Password'))
-                ->setWidth(9, 3);
+                ->setWidth(8, 4);
         });
-        $form->column(4, function ($form) {
+        $form->column(3,function ($form){
+            $form->switch('comments', __('Comments'))
+                ->default(1)
+                ->setWidth(8, 4);
+        });
+        $form->column(3, function ($form) {
             $form->number('sort', __('Sort'))
                 ->default(0)
                 ->min(0)
-                ->setWidth(9, 3);
+                ->setWidth(8, 4);
         });
         $form->column(12, function ($form) {
             $form->multipleSelect('tags', __('Tag'))

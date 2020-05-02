@@ -88,17 +88,22 @@ class PageController extends AdminController
         $form->text('keywords', __('Keywords'))
             ->required();
         $form->divider();
-        $form->column(6,function ($form){
+        $form->column(4,function ($form){
             $form->text('link_alias', __('Link alias'))
-                ->setWidth(10, 2)
+                ->setWidth(9, 3)
                 ->required();
         });
-        $form->column(6,function ($form){
+        $form->column(4,function ($form){
             $form->password('password', __('Password'))
-                ->setWidth(10, 2);
+                ->setWidth(9, 3);
+        });
+        $form->column(4,function ($form){
+            $form->switch('comments', __('Comments'))
+                ->default(1)
+                ->setWidth(9, 3);
         });
         $form->column(12,function ($form) {
-            $form->editormd('markdown', __('内容'))
+            $form->editormd('markdown', __('Markdown'))
                 ->required();
         });
 
