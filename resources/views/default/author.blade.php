@@ -1,8 +1,10 @@
+@inject('userPresenter', 'App\Presenters\UserPresenter')
+@php
+    $author = isset($user->id) ? $user : $userPresenter->getUserInfo();
+    $github_url = $systemPresenter->getKeyValue('github_url');
+    $weibo_url = $systemPresenter->getKeyValue('weibo_url');
+@endphp
 <div class="card author">
-    @inject('userPresenter', 'App\Presenters\UserPresenter')
-    @php
-        $author = isset($user->id) ? $user : $userPresenter->getUserInfo();
-    @endphp
     <div class="card-header">
         <h3 class="card-title">
             <i class="fas fa-address-card text-primary"></i>
@@ -13,14 +15,6 @@
         <img src="{{ '/storage/system/'.$author->avatar }}" class="author-avatar mx-auto d-block rounded-circle" alt="author avatar">
     </div>
     <div class="card-footer text-center">
-        @php
-            $github_url = '';
-            $weibo_url = '';
-            if (!isset($user->id) || $user->id == 1) {
-                $github_url = $systemPresenter->getKeyValue('github_url');
-                $weibo_url = $systemPresenter->getKeyValue('weibo_url');
-            }
-        @endphp
         @if ($github_url != "")
             <span title="{{ $github_url }}" data-toggle="tooltip" data-placement="bottom" class="social-item">
                 <a href="{{ $github_url }}" target="_blank" class="social-link" rel="external nofollow noopener noreferrer">

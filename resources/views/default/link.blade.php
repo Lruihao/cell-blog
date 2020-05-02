@@ -12,10 +12,6 @@
     <div class="card-body">
         <ul class="list-inline link-list">
             @forelse ($links as $link)
-{{--                @if($loop->index == 20)--}}
-{{--                    <a class="btn btn-light text-center d-block mt-2" href="{{ url('/') }}">更多友链</a>--}}
-{{--                    @break--}}
-{{--                @endif--}}
                 <li class="list-inline-item">
                     <svg class="link-avatar rounded-circle" title="{{ $link->url }}" data-toggle="tooltip" data-placement="bottom" aria-hidden="true">
                         <use xlink:href="#icon-{{ $loop->index + 1 }}"></use>

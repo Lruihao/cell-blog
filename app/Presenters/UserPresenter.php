@@ -11,15 +11,11 @@ use App\Models\User;
  */
 class UserPresenter
 {
-    public function getUserName($userId)
-    {
-        $user = User::where('id', $userId)->first();
-
-        if ($user) {
-            return $user->name;
-        }
-    }
-
+    /**
+     * 获取作者信息
+     * @param int $userId
+     * @return mixed
+     */
     public function getUserInfo($userId = 0) {
         $columns = ['id', 'name', 'avatar'];
 
