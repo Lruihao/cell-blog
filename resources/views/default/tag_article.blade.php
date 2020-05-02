@@ -2,17 +2,18 @@
 
 @extends('layouts.app')
 
-@section('title', $tag->name)
+@section('title', $systemPresenter->getKeyValue('title').' | '.'标签: '.$tag->name)
 
-@section('description', $systemPresenter->getKeyValue('description'))
+@section('description', $systemPresenter->checkReturnValue('description', $tag->description))
 
-@section('keywords', $systemPresenter->getKeyValue('keywords'))
+@section('keywords', $systemPresenter->checkReturnValue('keywords', $tag->keywords))
 
 @section('header-text')
     <div class="row">
         <div class="col-md-12">
             <h1 class="display-5 mb-3">
                 {{ $tag->name }}
+                <span class="tag-badge badge badge-pill badge-secondary">{{ count($tag->articles) }}</span>
             </h1>
             <div class="row article-info my-2 justify-content-center">
                 <span class="text-secondary">

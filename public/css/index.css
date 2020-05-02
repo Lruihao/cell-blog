@@ -206,3 +206,8 @@ a:hover {
     width: 1rem;
     height: 1rem;
 }
+.category-badge,
+.tag-badge {
+    font-size: 1rem;
+    vertical-align: middle;
+}

@@ -2,17 +2,18 @@
 
 @extends('layouts.app')
 
-@section('title', $systemPresenter->checkReturnValue('title', $category->name))
+@section('title', $systemPresenter->getKeyValue('title').' | '.'标签: '.$category->name)
 
-@section('description', $systemPresenter->checkReturnValue('description', $category->name))
+@section('description', $systemPresenter->checkReturnValue('description', $category->description))
 
-@section('keywords', $systemPresenter->checkReturnValue('keywords', $category->name))
+@section('keywords', $systemPresenter->checkReturnValue('keywords', $category->keywords))
 
 @section('header-text')
     <div class="row">
         <div class="col-md-12">
             <h1 class="display-5 mb-3">
                 {{ $category->name }}
+                <span class="category-badge badge badge-pill badge-secondary">{{ count($category->articles) }}</span>
             </h1>
             <div class="row article-info my-2 justify-content-center">
                 <span class="text-secondary">
