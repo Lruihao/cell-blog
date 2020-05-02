@@ -2,7 +2,7 @@
 
 @extends('layouts.page')
 
-@section('title', $systemPresenter->checkReturnValue('title', $page->title))
+@section('title', $systemPresenter->getKeyValue('title').' | '.$page->title)
 
 @section('description', $systemPresenter->checkReturnValue('description', $page->description))
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>404页面 | {{ config('app.name') }}</title>
+    <title>{{ config('app.name') }} | 404页面</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         html,body {
