@@ -9,13 +9,26 @@
 @section('keywords', $systemPresenter->getKeyValue('keywords'))
 
 @section('header-text')
-    <div class="text-inner">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="to-animate fadeInUp animated color-white">
-                    <i class="glyphicon glyphicon-tags"></i>
-                    &nbsp;{{ $tag->name }}
-                </h3>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="display-5 mb-3">
+                {{ $tag->name }}
+            </h1>
+            <div class="row article-info my-2 justify-content-center">
+                <span class="text-secondary">
+                    <i class="fas fa-calendar"></i>
+                    创建于 <span>{{ $tag->created_at }}</span>
+                </span>
+                @if($tag->updated_at != $tag->created_at)
+                    <span class="mx-2 text-secondary">|</span>
+                    <span class="text-secondary">
+                        <i class="fas fa-calendar-check"></i>
+                        更新于 <span>{{ $tag->updated_at }}</span>
+                    </span>
+                @endif
+            </div>
+            <div class="row my-2 justify-content-center">
+                <p class="lead page-description">{{ $tag->description }}</p>
             </div>
         </div>
     </div>

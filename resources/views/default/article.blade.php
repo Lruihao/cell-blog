@@ -1,4 +1,4 @@
-@if($articles)
+@if(count($articles))
     <ul class="article-list list-unstyled px-sm-2">
         @foreach ($articles as $article)
             <li class="mb-1 mb-sm-3 p-4 rounded">
@@ -42,7 +42,10 @@
     </ul>
     {!! $articles->links() !!}
 @else
-    <div class="content mx-sm-2 p-4 rounded alert-warning">
-        <p class="alert alert-warning">还没有文章哟,请去后台编写文章吧！！！</p>
+    <div class="content mx-sm-2 p-4 rounded">
+        <p class="alert alert-warning mb-0">
+            <i class="fas fa-exclamation-triangle"></i>
+            还没有文章哟，请去 <a href="/admin">后台</a> 创建文章吧！！！
+        </p>
     </div>
 @endif

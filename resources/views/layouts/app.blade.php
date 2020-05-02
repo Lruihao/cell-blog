@@ -47,7 +47,7 @@
     </div>
     <div class='row mx-0 mt-1 mt-sm-3'>
         <div class='col-md-8 px-0 my-1'>
-            <div class="content mr-sm-2 p-1 pt-4 rounded animated fast fadeIn">
+            <div class="content mr-sm-2 p-1 py-4 rounded animated fast fadeIn">
                 @yield('content')
             </div>
         </div>
