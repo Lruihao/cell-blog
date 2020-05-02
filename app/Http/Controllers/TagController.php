@@ -13,7 +13,7 @@ class TagController extends Controller
         $articles = $tag->articles()
             ->orderBy('sort','desc')
             ->orderBy('id', 'desc')
-            ->paginate(15);
+            ->paginate(10);
 
         return view('default.tag_article', compact('articles', 'tag'));
     }

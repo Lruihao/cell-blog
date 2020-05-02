@@ -69,7 +69,6 @@ a:hover {
     box-shadow: 0 0 14px #cacbcb;
 }
 .page-description {
-    color: #888;
     font-style: oblique;
     font-size: 1rem;
 }
@@ -206,8 +205,23 @@ a:hover {
     width: 1rem;
     height: 1rem;
 }
+.category-icon,
+.tag-icon {
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
 .category-badge,
 .tag-badge {
     font-size: 1rem;
     vertical-align: middle;
+}
+.article-info {
+    font-size: 0.75rem;
+    color: #999;
+}
+.article-tag {
+    font-family: 'Comic Sans MS',Monda,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+.article-tag:hover {
+    text-decoration: none;
 }

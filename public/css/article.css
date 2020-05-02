@@ -125,17 +125,6 @@ th {
     border: 0;
 }
 
-/* 创建时间，分类，标签 */
-.article-info {
-    font-size: 0.9rem;
-}
-.article-tag {
-    font-family: 'Comic Sans MS',Monda,"PingFang SC","Microsoft YaHei",sans-serif;
-}
-.article-tag:hover {
-    text-decoration: none;
-}
-
 /* 目录 */
 .table-of-contents {
     list-style: decimal;

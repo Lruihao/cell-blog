@@ -13,7 +13,7 @@ class CategoryController extends Controller
         $articles = $category->articles()
             ->orderBy('sort','desc')
             ->orderBy('id', 'desc')
-            ->paginate();
+            ->paginate(10);
 
         return view('default.category_article', compact('articles', 'category'));
     }

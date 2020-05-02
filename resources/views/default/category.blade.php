@@ -5,7 +5,7 @@
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">
-            <i class="fas fa-th text-warning"></i>
+            <i class="fas fa-list text-warning"></i>
             共 {{ count($categoryList) }} 个分类
         </h3>
     </div>

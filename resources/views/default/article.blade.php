@@ -12,27 +12,27 @@
                 </h1>
                 <p class="info">
                     <span>
-                        <i class="fas fa-calendar text-secondary" data-toggle="tooltip" data-placement="right"
+                        <i class="fas fa-calendar" data-toggle="tooltip" data-placement="right"
                            title="{{ date('Y-m-d H:i:s', strtotime($article->created_at)) }}"></i>
                         <span>{{ date('Y-m-d', strtotime($article->created_at)) }}</span>
                     </span>
                     @if($article->category)
                     <span class="mx-1">|</span>
                     <span>
-                        <i class="fas fa-folder text-secondary" data-toggle="tooltip" data-placement="right" title="分类"></i>
+                        <i class="fas fa-folder" data-toggle="tooltip" data-placement="right" title="分类"></i>
                         <a href="{{ route('category', ['id' => $article->category_id]) }}">
                             {{ $article->category->name }}
                         </a>
                     </span>
                     @endif
-                    <span class="m-1">|</span>
+                    <span class="mx-1">|</span>
                     <span>
-                        <i class="fas fa-eye text-secondary" data-toggle="tooltip" data-placement="right" title="阅读数"></i>
+                        <i class="fas fa-eye" data-toggle="tooltip" data-placement="right" title="阅读数"></i>
                         {{ $article->views }} views
                     </span>
                 </p>
                 <p class="description my-2">
-                    {{$article->description}}
+                    {{ $article->description }}
                 </p>
                 <div class="text-right article-btn">
                     <a class="btn btn-light" href="{{ route('article',['id' => $article->id]) }}">阅读全文 »</a>

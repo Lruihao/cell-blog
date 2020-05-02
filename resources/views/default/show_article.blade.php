@@ -22,13 +22,13 @@
                 {{ $article->title }}
             </h1>
             <div class="row article-info my-2 justify-content-center">
-                <span class="text-secondary">
+                <span>
                     <i class="fas fa-calendar"></i>
                     发表于 <span>{{ $article->created_at }}</span>
                 </span>
                 @if($article->category)
-                    <span class="mx-2 text-secondary">|</span>
-                    <span class="text-secondary">
+                    <span class="mx-2">|</span>
+                    <span>
                         <i class="fas fa-folder"></i>
                         分类于
                         <a href="{{ route('category', ['id' => $article->category_id]) }}">
@@ -36,6 +36,11 @@
                         </a>
                     </span>
                 @endif
+                <span class="mx-2">|</span>
+                <span>
+                    <i class="fas fa-eye"></i>
+                    阅读数: {{ $article->views }}
+                </span>
             </div>
             @if(count($article->tags))
                 <div class="row my-2 justify-content-center">
