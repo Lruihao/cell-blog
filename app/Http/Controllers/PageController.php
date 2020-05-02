@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Page;
 
 class PageController extends Controller
 {
     /**
+     * 获取页面内容
      * @param $alias
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -23,6 +23,7 @@ class PageController extends Controller
     }
 
     /**
+     * 关于页面
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function about()

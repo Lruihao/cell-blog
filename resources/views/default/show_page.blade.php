@@ -1,56 +1,64 @@
 @inject('systemPresenter', 'App\Presenters\SystemPresenter')
 
-@extends('default.page')
+@extends('layouts.page')
 
 @section('title', $systemPresenter->checkReturnValue('title', $page->title))
 
-@section('description', $systemPresenter->checkReturnValue('seo_desc', $page->desc))
+@section('description', $systemPresenter->checkReturnValue('description', $page->description))
 
-@section('keywords', $systemPresenter->checkReturnValue('seo_keyword', $page->keyword))
+@section('keywords', $systemPresenter->checkReturnValue('keywords', $page->keywords))
 
 @section('style')
-    <link rel="stylesheet" href="{{ asset('share.js/css/share.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/libs/share.js/css/share.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/libs/emojify.js/css/emojify.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('/libs/highlight.js/css/tomorrow-night-eighties.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/article.css') }}"/>
 @endsection
 
 @section('header-text')
-    <div class="text-inner">
-        <div class="row to-animate fadeInUp animated">
-            <div class="col-md-12">
-                <h3 class="color-white">
-                    {{ $page->title }}
-                </h3>
-
-                <p class="color-white m-t-25">
-                    {{ $page->desc }}
-                </p>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="display-5 mb-3">
+                {{ $page->title }}
+            </h1>
+            <div class="row article-info my-2 justify-content-center">
+                <span class="text-secondary">
+                    <i class="fas fa-calendar"></i>
+                    创建于 <span>{{ $page->created_at }}</span>
+                </span>
+                @if($page->updated_at != $page->created_at)
+                    <span class="mx-2 text-secondary">|</span>
+                    <span class="text-secondary">
+                        <i class="fas fa-calendar-check"></i>
+                        更新于 <span>{{ $page->updated_at }}</span>
+                    </span>
+                @endif
+            </div>
+            <div class="row my-2 justify-content-center">
+                <p class="lead page-description">{{ $page->description }}</p>
             </div>
         </div>
     </div>
 @endsection
 
 @section('content')
-    <div class="markdown-preview" style="padding:0;">
-        {!! $page->html_content !!}
+    <div class="article-content m-1 m-sm-3 py-2">
+        {!! $page->html !!}
     </div>
 
-    <div style="margin-top:20px;">
-        <div id="share" class="social-share"></div>
-    </div>
-    <!-- 评论插件 -->
-    @include('default.comment.index', [
-        'commentId' => "page-".$page->id,
-        'commentTitle' => $page->title,
-        'commentUrl' => Request::getUri()
-    ])
+    <div id="share" class="social-share mx-1 mx-sm-3 mb-4 text-center"></div>
+    @if($page->comments)
+        <hr class="mb-4"/>
+        <!-- 评论插件 -->
+        <div class="comments mx-1 mx-sm-3 mb-4 rounded" id="comments"></div>
+        @include('default.comment.index')
+    @endif
 @endsection
 
 @section('script')
-    <script src="{{ asset('share.js/js/jquery.share.min.js') }}"></script>
-
-    <script>
-        $(function(){
-            $('#share').share({sites: ['qzone', 'qq', 'weibo','wechat']});
-        });
-    </script>
-
+    <script src="{{ asset('/libs/share.js/js/jquery.share.min.js') }}"></script>
+    <script src="{{ asset('/libs/emojify.js/js/emojify.min.js') }}"></script>
+    <script src="{{ asset('/libs/highlight.js/js/highlight.min.js') }}"></script>
+    <script src="{{ asset('/js/article.js') }}" defer></script>
+    <script src="{{ asset('/js/activate-power-mode.js') }}" defer></script>
 @endsection

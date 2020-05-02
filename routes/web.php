@@ -23,6 +23,8 @@ Route::get('/tag/{id}', 'TagController@index')->name('tag');
 
 Route::get('/search', 'SearchController@index')->name('search');
 
+Route::permanentRedirect('/page/about', '/about');
+
 Route::get('/page/{alias}', 'PageController@index')->name('page.show');
 
 Route::get('/about', 'PageController@about')->name('about');
