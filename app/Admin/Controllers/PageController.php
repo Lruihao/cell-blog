@@ -93,10 +93,10 @@ class PageController extends AdminController
                 ->setWidth(9, 3)
                 ->required();
         });
-        $form->column(4,function ($form){
-            $form->password('password', __('Password'))
-                ->setWidth(9, 3);
-        });
+//        $form->column(4,function ($form){
+//            $form->password('password', __('Password'))
+//                ->setWidth(9, 3);
+//        });
         $form->column(4,function ($form){
             $form->switch('comments', __('Comments'))
                 ->default(1)

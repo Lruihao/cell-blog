@@ -123,10 +123,10 @@ class ArticleController extends AdminController
                 ->options(Category::pluck('name', 'id'))
                 ->ajax('/admin/select/categories');
         });
-        $form->column(3, function ($form) {
-            $form->password('password', __('Password'))
-                ->setWidth(8, 4);
-        });
+//        $form->column(3, function ($form) {
+//            $form->password('password', __('Password'))
+//                ->setWidth(8, 4);
+//        });
         $form->column(3,function ($form){
             $form->switch('comments', __('Comments'))
                 ->default(1)
@@ -143,7 +143,7 @@ class ArticleController extends AdminController
                 ->options(Tag::pluck('name', 'id'))
                 ->ajax('/admin/select/tags');
         });
-        $form->editormd('markdown', __('内容'))
+        $form->editormd('markdown', __('Markdown'))
             ->required();
 
         return $form;
