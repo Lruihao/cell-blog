@@ -41,7 +41,9 @@ class ArticleController extends AdminController
             $grid->model()->where('user_id', '=', Admin::user()->id);
         }
         //对文章进行置顶排序
-        $grid->model()->orderBy('sort', 'desc');
+        $grid->model()
+            ->orderBy('sort', 'desc')
+            ->orderBy('id', 'desc');
 
         $grid->column('number', __('Number'));
         $grid->column('title', __('Title'))

@@ -37,6 +37,8 @@ class SystemController extends AdminController
 html;
         });
 
+        $grid->model()->orderBy('id', 'desc');
+
         $grid->column('number', __('Number'));
         $grid->column('name', __('Name'));
         $grid->column('system_key', __('System key'))

@@ -30,7 +30,9 @@ class NavigationController extends AdminController
             'off' => ['text' => 'NO'],
         ];
 
-        $grid->model()->orderBy('sort', 'desc');
+        $grid->model()
+            ->orderBy('sort', 'desc')
+            ->orderBy('id', 'desc');
 
         $grid->column('number', __('Number'));
         $grid->column('name', __('Name'));

@@ -30,6 +30,8 @@ class PageController extends AdminController
             'off' => ['text' => 'NO'],
         ];
 
+        $grid->model()->orderBy('id', 'desc');
+
         $grid->column('number', __('Number'));
         $grid->column('title', __('Title'))
             ->limit(40);

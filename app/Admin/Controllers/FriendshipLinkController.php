@@ -26,6 +26,10 @@ class FriendshipLinkController extends AdminController
     {
         $grid = new Grid(new FriendshipLink());
 
+        $grid->model()
+            ->orderBy('sort', 'desc')
+            ->orderBy('id', 'desc');
+
         $grid->column('number', __('Number'));
         $grid->column('name', __('Name'));
         $grid->column('url', __('Url'));

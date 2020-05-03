@@ -26,6 +26,8 @@ class TagController extends AdminController
     {
         $grid = new Grid(new Tag());
 
+        $grid->model()->orderBy('id', 'desc');
+
         $grid->column('number', __('Number'));
         $grid->column('name', __('Name'))
             ->badge('purple');;
