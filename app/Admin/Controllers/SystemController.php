@@ -26,9 +26,23 @@ class SystemController extends AdminController
     {
         $grid = new Grid(new System());
 
+        $grid->header(function () {
+            return <<<html
+            <div class='text-center'>
+                <i class='fa fa-info-circle'></i>
+                <span>参数详见: config/blog.php ,</span>
+                <span>参数使用: config(\$key) ,</span>
+                <span>eg. config(\$title)</span>
+            </div>
+html;
+        });
+
         $grid->column('number', __('Number'));
         $grid->column('name', __('Name'));
-        $grid->column('system_key', __('System key'));
+        $grid->column('system_key', __('System key'))
+            ->display(function ($system_key){
+                return "<span class='btn btn-xs btn-twitter'>{$system_key}</span>";
+            });
         $grid->column('system_value', __('System value'))
             ->display(function ($value){
                 return htmlspecialchars($value);

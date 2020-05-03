@@ -63,6 +63,7 @@ class NavigationController extends AdminController
         $show->field('name', __('Name'));
         $show->field('url', __('Url'));
         $show->field('icon', __('Icon'));
+        $show->field('target', __('Target'));
         $show->field('sort', __('Sort'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
