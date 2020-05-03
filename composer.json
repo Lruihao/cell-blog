@@ -14,7 +14,6 @@
         "fruitcake/laravel-cors": "^1.0",
         "graham-campbell/markdown": "^12.0",
         "guzzlehttp/guzzle": "^6.3",
-        "laravel-admin-ext/config": "^1.1",
         "laravel-admin-ext/lock-screen": "^1.0",
         "laravel-admin-ext/media-manager": "^1.1",
         "laravel/framework": "^7.0",

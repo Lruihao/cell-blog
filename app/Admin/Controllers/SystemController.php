@@ -30,8 +30,9 @@ class SystemController extends AdminController
         $grid->column('name', __('Name'));
         $grid->column('system_key', __('System key'));
         $grid->column('system_value', __('System value'))
-            ->limit(100)
-            ->editable();
+            ->display(function ($value){
+                return htmlspecialchars($value);
+        })->limit(100);
         $grid->column('created_at', __('Created at'))
             ->date('Y-m-d H:i:s');
         $grid->column('updated_at', __('Updated at'))
@@ -81,4 +82,17 @@ class SystemController extends AdminController
 
         return $form;
     }
+
+    /**
+     * Load configure into laravel from database.
+     *
+     * @return void
+     */
+    public static function load()
+    {
+        foreach (System::pluck('system_value', 'system_key') as $key => $value) {
+            config([$key => $value]);
+        }
+    }
+
 }
