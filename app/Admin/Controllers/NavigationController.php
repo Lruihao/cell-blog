@@ -25,6 +25,10 @@ class NavigationController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Navigation());
+        $states = [
+            'on' => ['text' => 'YES'],
+            'off' => ['text' => 'NO'],
+        ];
 
         $grid->model()->orderBy('sort', 'desc');
 
@@ -39,6 +43,11 @@ class NavigationController extends AdminController
             ->replace([0 => '-'])
             ->editable()
             ->label('default');
+        $grid->column('switch group', __('Switch group'))
+            ->switchGroup([
+                'target' => '外部链接',
+                'status' => '显示'
+            ], $states);
         $grid->column('created_at', __('Created at'))
             ->date('Y-m-d H:i:s');
         $grid->column('updated_at', __('Updated at'))
@@ -63,8 +72,9 @@ class NavigationController extends AdminController
         $show->field('name', __('Name'));
         $show->field('url', __('Url'));
         $show->field('icon', __('Icon'));
-        $show->field('target', __('Target'));
         $show->field('sort', __('Sort'));
+        $show->field('target', __('Target'));
+        $show->field('status', __('Status'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -88,12 +98,14 @@ class NavigationController extends AdminController
         $form->text('icon', __('Icon'))
             ->default('globe')
             ->help('FontAwesome Solid icon');
-        $form->switch('target', __('Target'))
-            ->default(0);
         $form->number('sort', __('Sort'))
             ->default(0)
             ->min(0)
             ->max(10);
+        $form->switch('target', __('Target'))
+            ->default(0);
+        $form->switch('status', __('Status'))
+            ->default(1);
 
         return $form;
     }

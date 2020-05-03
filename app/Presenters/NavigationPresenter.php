@@ -19,6 +19,7 @@ class NavigationPresenter
     public function simpleNavList()
     {
         return Navigation::query()
+            ->where('status', '=', '1')
             ->orderBy('sort', 'desc')
             ->get(['name', 'url', 'icon', 'target']);
     }
