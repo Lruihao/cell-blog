@@ -12,5 +12,3 @@
         </div>
     </div>
 </footer>
-{{--自定义脚本--}}
-{!! config('custom_script', config('blog.custom_script')) !!}
