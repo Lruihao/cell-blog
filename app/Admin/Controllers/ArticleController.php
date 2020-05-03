@@ -46,6 +46,7 @@ class ArticleController extends AdminController
         $grid->column('category.name', __('Category'))
             ->badge('green');
         $grid->column('views', __('Views'))
+            ->sortable()
             ->label('warning');
         $grid->column('sort', __('Sort'))
             ->sortable()
