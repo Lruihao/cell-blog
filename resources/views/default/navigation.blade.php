@@ -4,6 +4,12 @@
 @endphp
 <div class="collapse navbar-collapse" id="navbar">
     <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('/') }}">
+                <i class="fas fa-home"></i>
+                首页
+            </a>
+        </li>
         @if ($navigations)
             @foreach ($navigations as $navigation)
                 <li class="nav-item">
