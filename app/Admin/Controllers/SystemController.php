@@ -49,6 +49,8 @@ html;
             ->display(function ($value){
                 return htmlspecialchars($value);
         })->limit(100);
+        $grid->column('status', __('Status'))
+            ->switch();
         $grid->column('created_at', __('Created at'))
             ->date('Y-m-d H:i:s');
         $grid->column('updated_at', __('Updated at'))
@@ -73,6 +75,7 @@ html;
         $show->field('name', __('Name'));
         $show->field('system_key', __('System key'));
         $show->field('system_value', __('System value'));
+        $show->field('status', __('Status'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -93,8 +96,9 @@ html;
             ->required();
         $form->text('system_key', __('System key'))
             ->required();
-        $form->textarea('system_value', __('System value'))
-            ->required();
+        $form->textarea('system_value', __('System value'));
+        $form->switch('status', __('Status'))
+            ->default(1);
 
         return $form;
     }
@@ -106,7 +110,9 @@ html;
      */
     public static function load()
     {
-        foreach (System::pluck('system_value', 'system_key') as $key => $value) {
+        $systemList = System::where('status', '=', 1)
+            ->pluck('system_value', 'system_key');
+        foreach ($systemList as $key => $value) {
             config([$key => $value]);
         }
     }

@@ -17,7 +17,8 @@ class CreateSystemsTable extends Migration
             $table->increments('id')->comment('设置主键');
             $table->string('name', 30)->comment('设置名称');
             $table->string('system_key', 30)->unique()->comment('设置项');
-            $table->text('system_value')->comment('设置值');
+            $table->text('system_value')->nullable()->comment('设置值');
+            $table->tinyInteger('status', 1)->default(1)->comment('状态: 1启用 0关闭');
             $table->timestamps();
         });
     }
