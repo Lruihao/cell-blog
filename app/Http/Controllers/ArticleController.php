@@ -10,6 +10,9 @@ class ArticleController extends Controller
     {
         $article = Article::findOrFail($id);
 
+        if (!$article->status){
+            abort(404);
+        }
         $article->increment("views");
 
         return view('default.show_article', compact('article'));

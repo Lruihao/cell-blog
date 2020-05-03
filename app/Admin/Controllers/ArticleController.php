@@ -88,6 +88,8 @@ class ArticleController extends AdminController
         $show->field('category_id', __('Category'));
         $show->field('description', __('Description'));
         $show->field('keywords', __('Keywords'));
+        $show->field('comments', __('Comments'));
+        $show->field('status', __('Status'));
         $show->field('sort', __('Sort'));
         $show->field('password', __('Password'));
         $show->field('views', __('Views'));
@@ -124,12 +126,13 @@ class ArticleController extends AdminController
                 ->options(Category::pluck('name', 'id'))
                 ->ajax('/admin/select/categories');
         });
-//        $form->column(3, function ($form) {
-//            $form->password('password', __('Password'))
-//                ->setWidth(8, 4);
-//        });
         $form->column(3,function ($form){
             $form->switch('comments', __('Comments'))
+                ->default(1)
+                ->setWidth(8, 4);
+        });
+        $form->column(3, function ($form) {
+            $form->switch('status', __('Status'))
                 ->default(1)
                 ->setWidth(8, 4);
         });

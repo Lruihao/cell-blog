@@ -15,8 +15,11 @@ class HomeController extends Controller
     {
         $articles = Article::query()
             ->with([
-                'category'
+                'user',
+                'category',
+                'tags'
             ])
+            ->where('status', '=', 1)
             ->orderBy('sort','desc')
             ->orderBy('id', 'desc')
             ->paginate(10);

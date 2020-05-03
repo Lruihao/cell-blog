@@ -15,7 +15,7 @@ class PageController extends Controller
     {
         $page  = Page::where('link_alias', $alias)->first();
 
-        if (!$page) {
+        if (!$page || !$page->status) {
             abort('404');
         }
 

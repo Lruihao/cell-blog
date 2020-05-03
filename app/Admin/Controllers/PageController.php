@@ -57,6 +57,8 @@ class PageController extends AdminController
         $show->field('link_alias', __('Link alias'));
         $show->field('keywords', __('Keywords'));
         $show->field('description', __('Description'));
+        $show->field('comments', __('Comments'));
+        $show->field('status', __('Status'));
         $show->field('password', __('Password'));
         $show->field('markdown', __('Markdown'));
         $show->field('html', __('Html'));
@@ -88,19 +90,20 @@ class PageController extends AdminController
         $form->text('keywords', __('Keywords'))
             ->required();
         $form->divider();
-        $form->column(4,function ($form){
+        $form->column(3,function ($form){
             $form->text('link_alias', __('Link alias'))
-                ->setWidth(9, 3)
+                ->setWidth(8, 4)
                 ->required();
         });
-//        $form->column(4,function ($form){
-//            $form->password('password', __('Password'))
-//                ->setWidth(9, 3);
-//        });
-        $form->column(4,function ($form){
+        $form->column(3,function ($form){
             $form->switch('comments', __('Comments'))
                 ->default(1)
-                ->setWidth(9, 3);
+                ->setWidth(8, 4);
+        });
+        $form->column(3,function ($form){
+            $form->switch('status', __('Status'))
+                ->default(1)
+                ->setWidth(8, 4);
         });
         $form->column(12,function ($form) {
             $form->editormd('markdown', __('Markdown'))
