@@ -110,6 +110,7 @@ th {
 }
 .article-content pre {
     background-color: #2d2d2d;
+    color: #f5f5f5;
     padding: 10px;
     border-radius: 0.25rem;
 }

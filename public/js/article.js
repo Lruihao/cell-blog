@@ -5,7 +5,6 @@ $(function(){
     $('#share').share({sites: ['qzone', 'qq', 'weibo','wechat']});
     emojify.setConfig({img_dir : '../images/emojis'});
     emojify.run();
-    hljs.initHighlightingOnLoad();
     // input特效
     POWERMODE.colorful = true; // make power mode colorful
     POWERMODE.shake = false; // turn off shake
