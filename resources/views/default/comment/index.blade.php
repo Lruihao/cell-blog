@@ -1,9 +1,9 @@
 @php
-$commentPlugin = $systemPresenter->getKeyValue('comment_plugin');
-$appId = $systemPresenter->getKeyValue($commentPlugin.'_app_id');
-$appKey = $systemPresenter->getKeyValue($commentPlugin.'_app_key');
+$commentPlugin = config('comment_plugin', config('blog.comment_plugin'));
+$appId = config($commentPlugin.'_app_id', config('blog'.$commentPlugin.'_app_id'));
+$appKey = config($commentPlugin.'_app_key', config('blog'.$commentPlugin.'_app_key'));
 @endphp
-@if($commentPlugin !='' && $appId != '' && $appKey!='')
+@if($commentPlugin!='' and $appId != '' && $appKey!='')
     @if($commentPlugin == 'valine')
         @include('default.comment.valine')
     @endif

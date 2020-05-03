@@ -1,15 +1,13 @@
-@inject('systemPresenter', 'App\Presenters\SystemPresenter')
-
 @extends('layouts.app')
 
-@section('title', $systemPresenter->getKeyValue('title'))
+@section('title', config('title', config('blog.title')))
 
-@section('description', $systemPresenter->getKeyValue('description'))
+@section('description', config('description', config('blog.description')))
 
-@section('keywords', $systemPresenter->getKeyValue('keywords'))
+@section('keywords', config('keywords', config('blog.keywords')))
 
 @section('header-text')
-    <p class="lead welcome">{{ $systemPresenter->getKeyValue('welcome') }}</p>
+    <p class="lead welcome">{{ config('welcome_words', config('blog.welcome_words')) }}</p>
 @endsection
 
 @section('content')

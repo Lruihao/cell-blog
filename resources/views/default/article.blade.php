@@ -7,7 +7,7 @@
                         <i class="fas fa-thumbtack sticky-flag" data-toggle="tooltip" data-placement="top" title="置顶"></i>
                     @endif
                     <a href="{{ route('article',['id' => $article->id]) }}" class="title-link">
-                        {{$article->title}}
+                        {{ $article->title }}
                     </a>
                 </h1>
                 <p class="info">

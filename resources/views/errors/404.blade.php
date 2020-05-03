@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ config('app.name') }} | 404页面</title>
+    <title>{{ config('title', config('blog.title')) }} | 404页面</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         html,body {
@@ -57,7 +57,7 @@
 <body>
 <div class="box">
     <img src="{{ asset('/images/404.png') }}" alt="404">
-    <p>将在 <span id="mes"></span> 秒钟后返回 <a href="{{ url('/') }}">{{ config('app.name') }}</a> 首页</p>
+    <p>将在 <span id="mes"></span> 秒钟后返回 <a href="{{ url('/') }}">{{ config('blog_name', config('blog.blog_name')) }}</a> 首页</p>
     <p class="hint">非常抱歉 - 您可能输入了错误的网址，或者该网页已删除或移动</p>
 </div>
 </body>

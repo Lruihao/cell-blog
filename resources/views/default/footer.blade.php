@@ -13,4 +13,4 @@
     </div>
 </footer>
 {{--自定义脚本--}}
-{!! $systemPresenter->getKeyValue('custom_script') !!}
+{!! config('custom_script', config('blog.custom_script')) !!}

@@ -25,12 +25,11 @@
 </head>
 
 <body>
-@inject('systemPresenter', 'App\Presenters\SystemPresenter')
 <nav class="navbar navbar-expand-md navbar-dark bg-dark position-sticky sticky-top">
     <div class="container">
         <a class="navbar-brand animated fast rubberBand" href="{{ url('/') }}">
             <img src="{{ url('images/brand.svg') }}" width="30" height="30" class="d-inline-block align-top" alt="Cell-Blog">
-            {{ $systemPresenter->getKeyValue('blog_name') }}
+           {{ config('blog_name', config('blog.blog_name')) }}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
             <span class="navbar-toggler-icon"></span>

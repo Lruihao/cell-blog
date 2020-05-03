@@ -1,17 +1,32 @@
 <?php
 
 return [
-    'system_key' => [
-        'blog_name',
-        'motto',
-        'title',
-        'description',
-        'keywords',
-        'icp',
-        'github_url',
-        'weibo_url',
-        'disqus_short_name',
-        'comment_plugin',
-        'statistics_script'
-    ]
+    /*
+    |--------------------------------------------------------------------------
+    | Base config
+    |--------------------------------------------------------------------------
+    | ！！！请勿修改该配置文件，自定义请前往 http://your.host/admin/config
+    |
+    */
+    'title' => 'Cell-Blog',
+    'blog_name' => 'Cell-Blog',
+    'description' => '基于laravel开发的Markdown博客，李瑞豪的个人独立博客系统',
+    'keywords' => 'Cell-Blog,李瑞豪,lruihao,独立博客,laravel-blog',
+    'welcome_words' => '欢迎使用 Cell-Blog 个人独立博客！',
+    'github_url' => 'https://github.com/Lruihao',
+    'weibo_url' => 'https://weibo.com/liahao',
+    /*
+    |--------------------------------------------------------------------------
+    | 评论插件
+    |--------------------------------------------------------------------------
+    */
+    'comment_plugin' => 'valine',
+    'valine_app_id' => '',
+    'valine_app_key' => '',
+    /*
+    |--------------------------------------------------------------------------
+    | 自定义JavaScript脚本
+    |--------------------------------------------------------------------------
+    */
+    'custom_script' => ''
 ];

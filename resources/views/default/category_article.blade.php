@@ -1,12 +1,10 @@
-@inject('systemPresenter', 'App\Presenters\SystemPresenter')
-
 @extends('layouts.app')
 
-@section('title', $systemPresenter->getKeyValue('title').' | '.'标签: '.$category->name)
+@section('title', config('title', config('blog.title')).' | '.'分类: '.$category->name)
 
-@section('description', $systemPresenter->checkReturnValue('description', $category->description))
+@section('description', $category->description ?? config('description', config('blog.description')))
 
-@section('keywords', $systemPresenter->checkReturnValue('keywords', $category->keywords))
+@section('keywords', $category->keywords ?? config('keywords', config('blog.keywords')))
 
 @section('header-text')
     <div class="row">

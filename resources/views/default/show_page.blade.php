@@ -1,12 +1,10 @@
-@inject('systemPresenter', 'App\Presenters\SystemPresenter')
-
 @extends('layouts.page')
 
-@section('title', $systemPresenter->getKeyValue('title').' | '.$page->title)
+@section('title', config('title', config('blog.title')).' | '.$page->title)
 
-@section('description', $systemPresenter->checkReturnValue('description', $page->description))
+@section('description', $page->description ?? config('description', config('blog.description')))
 
-@section('keywords', $systemPresenter->checkReturnValue('keywords', $page->keywords))
+@section('keywords', $page->keywords ?? config('keywords', config('blog.keywords')))
 
 @section('style')
     <link rel="stylesheet" href="{{ asset('/libs/share.js/css/share.min.css') }}">
