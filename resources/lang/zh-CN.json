@@ -23,5 +23,6 @@
   "Icon": "图标",
   "Target": "外部链接",
   "Comments": "评论",
-  "Status": "状态"
+  "Status": "发布状态",
+  "Switch group": "状态开关"
 }

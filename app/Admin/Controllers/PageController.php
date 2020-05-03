@@ -25,6 +25,10 @@ class PageController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Page());
+        $states = [
+            'on' => ['text' => 'YES'],
+            'off' => ['text' => 'NO'],
+        ];
 
         $grid->column('number', __('Number'));
         $grid->column('title', __('Title'))
@@ -32,6 +36,11 @@ class PageController extends AdminController
         $grid->column('link_alias', __('Link alias'));
         $grid->column('description', __('Description'))
             ->limit(40);
+        $grid->column('switch group', __('Switch group'))
+            ->switchGroup([
+                'comments' => '评论',
+                'status' => '发布'
+            ], $states);
         $grid->column('created_at', __('Created at'))
             ->date('Y-m-d H:i:s');
         $grid->column('updated_at', __('Updated at'))

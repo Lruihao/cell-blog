@@ -31,6 +31,10 @@ class ArticleController extends AdminController
         $grid = new Grid(new Article());
         global $isAdmin;
         $isAdmin = Admin::user()->isAdministrator();
+        $states = [
+            'on' => ['text' => 'YES'],
+            'off' => ['text' => 'NO'],
+        ];
 
         //非超级管理员只能管理自己为作者的文章
         if (!$isAdmin) {
@@ -54,6 +58,11 @@ class ArticleController extends AdminController
             ->help('最大值置顶')
             ->editable()
             ->label('default');
+        $grid->column('switch group', __('Switch group'))
+            ->switchGroup([
+                'comments' => '评论',
+                'status' => '发布'
+            ], $states);
         $grid->column('created_at', __('Created at'))
             ->date('Y-m-d H:i:s');
         $grid->column('updated_at', __('Updated at'))
