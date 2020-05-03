@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->increments('id')->comment('分类主键');
             $table->string('name', 20)->unique()->comment('分类名称');
             $table->string('description')->default('')->comment('描述');
+            $table->string('keywords')->nullable()->comment('关键词');
             $table->timestamps();
         });
     }

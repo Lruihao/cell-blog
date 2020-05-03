@@ -84,6 +84,7 @@ class TagController extends AdminController
             ->required();
         $form->text('description', __('Description'))
             ->required();
+        $form->text('keywords', __('Keywords'));
 
         return $form;
     }
