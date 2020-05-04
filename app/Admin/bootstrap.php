@@ -1,6 +1,7 @@
 <?php
 
 use Encore\Admin\Grid;
+use Encore\Admin\Facades\Admin;
 
 /**
  * Laravel-admin - admin builder based on Laravel.
@@ -24,11 +25,18 @@ Encore\Admin\Form::forget(['map', 'editor']);
 
 //表格的初始化
 Grid::init(function (Grid $grid) {
+
     $grid->disableFilter();
+
+    /*Grid导出csv*/
     $grid->disableExport();
-    $grid->enableHotKeys();
-    //为每一行添加序号
+
+    /*Grid快捷键*/
+//    $grid->enableHotKeys();
+
+    /*为每一行添加序号*/
     $grid->rows(function ($row, $number) {
         $row->column('number', $number + 1);
     });
+
 });
