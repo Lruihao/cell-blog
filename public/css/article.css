@@ -125,6 +125,15 @@ th {
     height: auto;
     border: 0;
 }
+.article-content ul {
+    list-style: circle;
+}
+.article-content ul ul {
+    list-style: disc;
+}
+.article-content ul ul ul {
+    list-style: square;
+}
 
 /* 目录 */
 .table-of-contents {
