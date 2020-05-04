@@ -27,6 +27,11 @@ class ArticlePresenter
             ]);
     }
 
+    /**
+     * 格式化标题
+     * @param $title
+     * @return string
+     */
     public function formatTitle($title)
     {
         if (strlen($title) <= 20) {
