@@ -21,7 +21,7 @@ Route::get('/categories/{id}', 'CategoryController@index')->name('category');
 
 Route::get('/tags/{id}', 'TagController@index')->name('tag');
 
-Route::get('/search', 'SearchController@index')->name('search');
+Route::get('/search', 'ArticleController@search')->name('search');
 
 Route::get('/about', 'PageController@about')->name('about');
 Route::get('/guestbook', 'PageController@guestbook')->name('guestbook');

@@ -207,13 +207,11 @@ a:hover {
     width: 1rem;
     height: 1rem;
 }
-.category-icon,
-.tag-icon {
+.header-icon {
     font-size: 2rem;
     vertical-align: middle;
 }
-.category-badge,
-.tag-badge {
+.header-badge {
     font-size: 1rem;
     vertical-align: middle;
 }

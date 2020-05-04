@@ -15,7 +15,6 @@ class HomeController extends Controller
     {
         $articles = Article::query()
             ->with([
-                'user',
                 'category',
                 'tags'
             ])

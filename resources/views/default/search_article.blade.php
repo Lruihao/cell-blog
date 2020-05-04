@@ -1,21 +1,18 @@
 @extends('layouts.app')
 
-@section('title', request('keyword'))
+@section('title', request('wd'))
 
-@section('description', request('keyword'))
+@section('description', request('wd'))
 
-@section('keywords', request('keyword'))
+@section('keywords', request('wd'))
 
 @section('header-text')
-    <div class="text-inner">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="to-animate fadeInUp animated color-white">
-                    <i class="glyphicon glyphicon-search"></i>
-                    &nbsp;
-                    {{ request('keyword') }}
-                </h3>
-            </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="display-5 mb-3">
+                <i class="fas fa-search header-icon" title="搜索: {{ request('wd') }}" data-toggle="tooltip" data-placement="left"></i>
+                {{ request('wd') }}
+            </h1>
         </div>
     </div>
 @endsection

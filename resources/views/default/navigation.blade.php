@@ -47,7 +47,7 @@
         @endif
     </ul>
     <form class="form-inline my-2 my-lg-0" action="{{ route('search') }}" method="get">
-        <input class="form-control mr-sm-2" type="search" value="" name="keyword" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-2" type="search" value="" name="wd" placeholder="Search..." aria-label="Search">
+        <button class="btn btn-light my-2 my-sm-0" type="submit">搜索</button>
     </form>
-    <a class="btn btn-light" href="{{ url('/admin') }}" target="_blank">登录</a>
 </div>
