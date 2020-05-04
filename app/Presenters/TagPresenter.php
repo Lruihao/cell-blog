@@ -12,13 +12,6 @@ use App\Models\Tag;
  */
 class TagPresenter
 {
-    public function tagNameList(Article $article)
-    {
-        $tag = $article->tag()->pluck('name');
-        
-        return $tag ? implode(';', $tag->toArray()) : '';
-    }
-
     /**
      * 获取标签列表
      *

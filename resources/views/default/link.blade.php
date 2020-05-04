@@ -1,3 +1,7 @@
+@inject('linkPresenter', 'App\Presenters\LinkPresenter')
+@php
+    $links = $linkPresenter->linkList()
+@endphp
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">

@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-md-12">
             <h1 class="display-5 mb-3">
-                <i class="fas fa-tag tag-icon"></i>
+                <i class="fas fa-tag tag-icon" title="标签: {{ $tag->name }}" data-toggle="tooltip" data-placement="left"></i>
                 {{ $tag->name }}
                 <span class="tag-badge badge badge-pill badge-secondary">{{ count($tag->articles) }}</span>
             </h1>

@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-md-12">
             <h1 class="display-5 mb-3">
-                <i class="fas fa-list category-icon"></i>
+                <i class="fas fa-list category-icon" title="分类: {{ $category->name }}" data-toggle="tooltip" data-placement="left"></i>
                 {{ $category->name }}
                 <span class="category-badge badge badge-pill badge-secondary">{{ count($category->articles) }}</span>
             </h1>

@@ -1,17 +1,17 @@
 @inject('tagPresenter', 'App\Presenters\TagPresenter')
 @php
-    $tagList = $tagPresenter->tagList();
+    $tags = $tagPresenter->tagList();
 @endphp
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">
             <i class="fas fa-tags text-success"></i>
-            共 {{ count($tagList) }} 个标签
+            共 {{ count($tags) }} 个标签
         </h3>
     </div>
     <div class="card-body">
         <ul class="list-inline">
-            @forelse ($tagList as $tag)
+            @forelse ($tags as $tag)
                 <li class="list-inline-item badge badge-pill badge-{{ $colorList[$loop->index % 8] }}">
                     <a href="{{ route('tag', ['id' => $tag->id]) }}" class="tag-item">{{ $tag->name }}</a>
                 </li>
