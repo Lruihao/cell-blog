@@ -6,12 +6,7 @@
 
 @section('keywords', $article->keywords ?? config('keywords', config('blog.keywords')))
 
-@section('style')
-    <link rel="stylesheet" href="{{ asset('/libs/share.js/css/share.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/libs/emojify.js/css/emojify.min.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('/libs/highlight.js/css/tomorrow-night-eighties.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/article.css') }}"/>
-@endsection
+@include('default.common.style')
 
 @section('header-text')
     <div class="row">
@@ -92,13 +87,4 @@
     @endif
 @endsection
 
-@section('script')
-    <script src="{{ asset('/libs/share.js/js/jquery.share.min.js') }}"></script>
-    <script src="{{ asset('/libs/emojify.js/js/emojify.min.js') }}"></script>
-    <script src="{{ asset('/libs/highlight.js/js/highlight.min.js') }}"></script>
-    <script src="{{ asset('/js/article.js') }}"></script>
-    <script src="{{ asset('/js/activate-power-mode.js') }}"></script>
-    <script>
-        hljs.initHighlightingOnLoad();
-    </script>
-@endsection
+@include('default.common.script')
