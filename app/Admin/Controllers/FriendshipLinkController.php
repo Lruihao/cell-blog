@@ -33,7 +33,8 @@ class FriendshipLinkController extends AdminController
         $grid->column('number', __('Number'));
         $grid->column('name', __('Name'));
         $grid->column('url', __('Url'));
-        $grid->column('avatar', __('Avatar'));
+        $grid->column('avatar', __('Avatar'))
+            ->gallery(['width' => 50, 'height' => 50]);
         $grid->column('description', __('Description'));
         $grid->column('sort', __('Sort'))
             ->sortable()
