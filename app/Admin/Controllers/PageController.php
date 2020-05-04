@@ -30,6 +30,15 @@ class PageController extends AdminController
             'off' => ['text' => 'NO'],
         ];
 
+        $grid->header(function () {
+            return <<<html
+            <div class='text-center'>
+                <i class='fa fa-info-circle'></i>
+                <span>系统: 关于 about(需创建) , 留言 guestbook(需创建) , 友链 links(无需创建)</span>
+            </div>
+html;
+        });
+
         $grid->model()->orderBy('id', 'desc');
 
         $grid->column('number', __('Number'));
