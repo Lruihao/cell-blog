@@ -8,10 +8,14 @@
     <div class="card-body">
         <ul class="list-inline link-list">
             @forelse ($links as $link)
-                <li class="list-inline-item">
-                    <svg class="link-avatar rounded-circle" title="{{ $link->url }}" data-toggle="tooltip" data-placement="bottom" aria-hidden="true">
-                        <use xlink:href="#icon-{{ $loop->index + 1 }}"></use>
-                    </svg>
+                <li class="list-inline-item" title="{{ $link->url }}" data-toggle="tooltip" data-placement="bottom">
+                    @if($link->avatar)
+                        <img class="link-avatar rounded-circle" src="{{ url($link->avatar) }}" alt="{{ $link->name }}"/>
+                    @else
+                        <svg class="link-avatar rounded-circle"  aria-hidden="true">
+                            <use xlink:href="#icon-{{ $loop->index + 1 }}"></use>
+                        </svg>
+                    @endif
                     <a href="{{ url($link->url) }}" target="_blank" rel="external nofollow noopener noreferrer">{{ $link->name }}</a>
                 </li>
             @empty
