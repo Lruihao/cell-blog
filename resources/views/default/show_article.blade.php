@@ -84,7 +84,7 @@
         <hr class="mb-4"/>
         <!-- 评论插件 -->
         <div class="comments mx-1 mx-sm-3 mb-4 rounded" id="comments"></div>
-        @include('default.comment.index')
+        @include('default.comments.index')
     @endif
 @endsection
 

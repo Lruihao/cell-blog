@@ -28,14 +28,16 @@
                         更新于 <span>{{ $page->updated_at }}</span>
                     </span>
                 @endif
-                @if($page->comments)
-                    <span class="mx-2 text-secondary">|</span>
-                    <span id="{{ $page->link_alias == ('about' || 'guestbook') ? '/'.$page->link_alias : '/page/'.$page->link_alias }}"
-                          class="leancloud_visitors" data-flag-title="{{ $page->title }}">
-                        <i class="fas fa-eye"></i>
-                        访问量: <i class="leancloud-visitors-count"></i>
-                    </span>
-                @endif
+                <span class="mx-2 text-secondary">|</span>
+                <span id="{{ $page->link_alias == ('about' || 'guestbook') ? '/'.$page->link_alias : '/page/'.$page->link_alias }}"
+                      class="leancloud_visitors" data-flag-title="{{ $page->title }}">
+                    <i class="fas fa-eye"></i>
+                    @if($page->comments && config('comment_plugin', config('blog.comment_plugin')) == 'valine'  && config('valine_app_id', config('blog.valine_app_id')) && config('valine_app_id', config('blog.valine_app_id')))
+                        访问量: <span class="leancloud-visitors-count"></span>
+                    @else
+                        访问量: <span id="busuanzi_value_page_pv"></span>
+                    @endif
+                </span>
             </div>
             <div class="row my-2 justify-content-center">
                 <p class="lead page-description text-dark">{{ $page->description }}</p>
@@ -54,7 +56,7 @@
         <hr class="mb-4"/>
         <!-- 评论插件 -->
         <div class="comments mx-1 mx-sm-3 mb-4 rounded" id="comments"></div>
-        @include('default.comment.index')
+        @include('default.comments.index')
     @endif
 @endsection
 

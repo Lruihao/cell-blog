@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
     line-height: 1.4;
-    font-family: 'Comic Sans MS',Monda,"PingFang SC","Microsoft YaHei",sans-serif;
+    font-family: "Comic Sans MS", Monda, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 body {
     background-image: url('/images/background.jpg');
@@ -143,6 +143,9 @@ a:hover {
     color: #fff;
     background: #34495e;
 }
+.article-btn .btn:active {
+    transform: scale(0.97);
+}
 
 /* 分页导航 */
 .pagination {
@@ -160,7 +163,7 @@ a:hover {
 .sidebar {
     position: sticky;
     top: 70px;
-    font-family: 'Comic Sans MS',Monda,"PingFang SC","Microsoft YaHei",sans-serif;
+    font-family: "Comic Sans MS", Monda, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 .card {
     border-radius: 0.25rem;
@@ -219,8 +222,46 @@ a:hover {
     color: #999;
 }
 .article-tag {
-    font-family: 'Comic Sans MS',Monda,"PingFang SC","Microsoft YaHei",sans-serif;
+    font-family: "Comic Sans MS", Monda, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 .article-tag:hover {
     text-decoration: none;
+}
+
+/* footer */
+.footer {
+    color: black;
+    font-family: STLiti;
+    line-height: 1.5;
+    font-size: 15px;
+}
+.copyright-icon {
+    font-family: normal;
+}
+.busuanzi-count {
+    color: DarkSlateGray;
+}
+.divider {
+    margin: 0 2px;
+}
+
+/* 移动端样式 */
+@media (max-width: 767px){
+    body {
+        background: #e5e9ed;
+    }
+    .main {
+        background: #fff;
+    }
+    .article-btn .btn {
+        background: #fff;
+        border: 2px solid #555;
+    }
+    .article-btn .btn:hover {
+        color: #fff;
+        background: #000;
+    }
+    .footer {
+        font-size: 12px;
+    }
 }

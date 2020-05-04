@@ -1,13 +1,29 @@
-<footer id="footer" role="contentinfo">
+<footer class="footer text-center my-4">
     <div class="container">
+        @include('default.analytics.busuanzi')
         <div class="row">
-            <div class="col-md-12 text-center">
-                <p class="my-4">
-                    <strong>Powered by <a href="https://lruihao.cn" target="_blank">Cell Blog</a></strong>
-                    <a href='https://github.com/Lruihao/cell-blog' target="_blank" rel="external nofollow noopener noreferrer">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </p>
+            <div class="col-md-12">
+                <span class="copyright">
+                    Copyright
+                    <span class="copyright-icon">&copy;</span>
+                    <span class="copyright-year" itemprop="copyrightYear">@php echo(date('Y')) @endphp</span>
+                    <span class="author" itemprop="copyrightHolder">{{ config('copyright_holder', config('blog.copyright_holder')) }}. </span>
+                </span>
+                @if(config('icp_info', config('blog.icp_info')))
+                    <span class="icp-info">
+                        <a href="http://www.beian.miit.gov.cn" target="_blank" rel="external nofollow noopener noreferrer">
+                        {{ config('icp_info', config('blog.icp_info')) }}
+                        </a>
+                    </span>
+                @endif
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <strong>Powered by <a href="https://lruihao.cn" target="_blank">Cell Blog</a></strong>
+                <a href='https://github.com/Lruihao/cell-blog' target="_blank" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
         </div>
     </div>
@@ -17,7 +33,8 @@
 <script src="{{ asset('/libs/bootstrap4.3/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('/js/love.min.js') }}" async defer></script>
 <script src="{{ asset('/js/index.js') }}" async defer></script>
-<script src="//at.alicdn.com/t/font_578712_g26jo2kbzd5qm2t9.js" async defer></script>
+<script src="//at.alicdn.com/t/font_578712_g26jo2kbzd5qm2t9.js" async></script>
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
 
 @yield('script')
 
