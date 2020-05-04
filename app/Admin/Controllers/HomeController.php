@@ -14,8 +14,8 @@ class HomeController extends Controller
     {
         return $content
             ->title('Cell Blog')
-            ->description('快速搭建自己的独立个人博客')
-            ->row(Dashboard::title())
+            ->description('基于PHP框架Laravel7开发的Markdown个人独立博客')
+            ->row(DashboardController::index())
             ->row(function (Row $row) {
 
                 $row->column(4, function (Column $column) {
