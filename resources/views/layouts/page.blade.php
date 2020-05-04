@@ -53,17 +53,7 @@
     </div>
 </div>
 
-@include('default.footer')
+@include('layouts.footer')
 
-<script src="{{ asset('/libs/jquery-3.4.1.min.js') }}"></script>
-<script src="{{ asset('/libs/bootstrap4.3/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('/js/love.min.js') }}" async defer></script>
-<script src="{{ asset('/js/index.js') }}" async defer></script>
-<script src="//at.alicdn.com/t/font_578712_g26jo2kbzd5qm2t9.js" async defer></script>
-
-@yield('script')
-
-{{--自定义脚本--}}
-{!! config('custom_script', config('blog.custom_script')) !!}
 </body>
 </html>
