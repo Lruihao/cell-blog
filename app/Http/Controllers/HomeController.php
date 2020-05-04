@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\FriendshipLink;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,15 @@ class HomeController extends Controller
             ->orderBy('id', 'desc')
             ->paginate(10);
 
-        return view('default.home', compact('articles'));
+        $links = FriendshipLink::query()
+            ->where('status', '=', 1)
+            ->orderBy('sort', 'desc')
+            ->paginate(10, [
+                'name',
+                'url',
+                'avatar'
+            ]);
+
+        return view('default.home', compact('articles','links'));
     }
 }

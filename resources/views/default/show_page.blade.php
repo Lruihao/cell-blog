@@ -6,7 +6,9 @@
 
 @section('keywords', $page->keywords ?? config('keywords', config('blog.keywords')))
 
-@include('default.common.style')
+@section('style')
+    @include('default.common.style')
+@endsection
 
 @section('header-text')
     <div class="row">
@@ -24,6 +26,14 @@
                     <span>
                         <i class="fas fa-calendar-check"></i>
                         更新于 <span>{{ $page->updated_at }}</span>
+                    </span>
+                @endif
+                @if($page->comments)
+                    <span class="mx-2 text-secondary">|</span>
+                    <span id="{{ $page->link_alias == ('about' || 'guestbook') ? '/'.$page->link_alias : '/page/'.$page->link_alias }}"
+                          class="leancloud_visitors" data-flag-title="{{ $page->title }}">
+                        <i class="fas fa-eye"></i>
+                        访问量: <i class="leancloud-visitors-count"></i>
                     </span>
                 @endif
             </div>
@@ -48,4 +58,6 @@
     @endif
 @endsection
 
-@include('default.common.script')
+@section('script')
+    @include('default.common.script')
+@endsection

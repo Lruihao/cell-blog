@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Models\FriendshipLink;
 
 class PageController extends Controller
 {
@@ -38,5 +39,23 @@ class PageController extends Controller
     public function guestbook()
     {
         return $this->index('guestbook');
+    }
+
+    /**
+     * 友链页面
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function links()
+    {
+        $links = FriendshipLink::query()
+            ->where('status', '=', 1)
+            ->orderBy('sort', 'desc')
+            ->paginate(2, [
+                'name',
+                'url',
+                'avatar',
+                'description'
+            ]);
+        return view('default.show_link', compact('links'));
     }
 }

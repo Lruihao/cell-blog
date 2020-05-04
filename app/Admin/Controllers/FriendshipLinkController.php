@@ -33,11 +33,15 @@ class FriendshipLinkController extends AdminController
         $grid->column('number', __('Number'));
         $grid->column('name', __('Name'));
         $grid->column('url', __('Url'));
+        $grid->column('avatar', __('Avatar'));
+        $grid->column('description', __('Description'));
         $grid->column('sort', __('Sort'))
             ->sortable()
             ->replace([0 => '-'])
             ->editable()
             ->label('default');
+        $grid->column('status', __('Status'))
+            ->switch();
         $grid->column('created_at', __('Created at'))
             ->date('Y-m-d H:i:s');
         $grid->column('updated_at', __('Updated at'))
@@ -62,6 +66,9 @@ class FriendshipLinkController extends AdminController
         $show->field('name', __('Name'));
         $show->field('url', __('Url'));
         $show->field('sort', __('Sort'));
+        $show->field('status', __('Status'));
+        $show->field('avatar', __('Avatar'));
+        $show->field('description', __('Description'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -82,9 +89,14 @@ class FriendshipLinkController extends AdminController
             ->required();
         $form->url('url', __('Url'))
             ->required();
+        $form->text('description', __('Description'))
+            ->required();
+        $form->url('avatar', __('Avatar'));
         $form->number('sort', __('Sort'))
             ->default(0)
             ->min(0);
+        $form->switch('status', __('Status'))
+            ->default(1);
 
         return $form;
     }

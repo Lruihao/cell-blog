@@ -6,7 +6,9 @@
 
 @section('keywords', $article->keywords ?? config('keywords', config('blog.keywords')))
 
-@include('default.common.style')
+@section('style')
+    @include('default.common.style')
+@endsection
 
 @section('header-text')
     <div class="row">
@@ -49,7 +51,6 @@
             @endif
         </div>
     </div>
-
 @endsection
 
 @section('content')
@@ -87,4 +88,6 @@
     @endif
 @endsection
 
-@include('default.common.script')
+@section('script')
+    @include('default.common.script')
+@endsection

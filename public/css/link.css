@@ -1,0 +1,60 @@
+/**
+ * @Name: link.css
+ * @Description: 友情链接样式
+ * @Author: 李瑞豪
+ * @Update: 2020-5-4 12:26
+ */
+
+.links-list {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.card-box {
+    width: 150px;
+    height: 200px;
+    font-size: 1rem;
+    text-align: center;
+    background: rgba(255,255,255,0.3);
+    box-sizing: border-box;
+    box-shadow: 3px 3px 5px #aaa;
+    border-radius: 5px;
+    transition-duration: 0.3s;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.card-box:hover {
+    background: #fff;
+    transform: scale(1.03);
+    box-shadow: 0 0 3px #aaa;
+}
+.card-box a {
+    border: none;
+    text-decoration: none;
+}
+.card-avatar {
+    width: 100%!important;
+    height: 150px!important;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+}
+.card-box span{
+    display: block;
+    position: relative;
+    bottom: 1rem;
+    align-self: flex-end;
+    color: #2bbc8a;
+    font-weight: bold;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 15px;
+}
+.card-box span:hover {
+    color: #d480aa;
+}

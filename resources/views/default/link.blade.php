@@ -1,7 +1,3 @@
-@inject('linkPresenter', 'App\Presenters\LinkPresenter')
-@php
-    $links = $linkPresenter->linkList()
-@endphp
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">
@@ -16,11 +12,14 @@
                     <svg class="link-avatar rounded-circle" title="{{ $link->url }}" data-toggle="tooltip" data-placement="bottom" aria-hidden="true">
                         <use xlink:href="#icon-{{ $loop->index + 1 }}"></use>
                     </svg>
-                    <a href="{{ $link->url }}" target="_blank" rel="external nofollow noopener noreferrer">{{ $link->name }}</a>
+                    <a href="{{ url($link->url) }}" target="_blank" rel="external nofollow noopener noreferrer">{{ $link->name }}</a>
                 </li>
             @empty
                 <p class="card-text">暂无友情链接！</p>
             @endforelse
         </ul>
+    </div>
+    <div class="card-footer text-center">
+        <a href="{{ url('/links') }}" class="btn btn-light">更多友链 »</a>
     </div>
 </div>

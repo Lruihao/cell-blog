@@ -17,7 +17,10 @@ class CreateFriendshipLinksTable extends Migration
             $table->increments('id')->comment('友链主键');
             $table->string('name', 50)->default('')->comment('链接名');
             $table->string('url')->default('')->comment('链接地址');
+            $table->string('avatar')->nullable()->comment('头像地址');
+            $table->string('description')->default('')->comment('友链描述');
             $table->tinyInteger('sort')->default(0)->comment('排序');
+            $table->tinyInteger('status', 1)->default(1)->comment('状态: 1启用 0关闭');
             $table->timestamps();
         });
     }
