@@ -16,12 +16,24 @@ class ArticleController extends Controller
     {
         $article = Article::findOrFail($id);
 
+        $prev = Article::query()
+            ->orderBy('created_at', 'desc')
+            ->where('id', '<', $article->id)
+            ->limit(1)
+            ->first(['id', 'title']);
+
+        $next = Article::query()
+            ->orderBy('created_at', 'asc')
+            ->where('id', '>', $article->id)
+            ->limit(1)
+            ->first(['id', 'title']);
+
         if (!$article->status){
             abort(404);
         }
         $article->increment("views");
 
-        return view('default.show_article', compact('article'));
+        return view('default.show_article', compact('article', 'prev', 'next'));
     }
 
     /**

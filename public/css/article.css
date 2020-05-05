@@ -169,3 +169,11 @@ th {
     border-left: 3px solid #ff1700;
     font-size: 0.85rem;
 }
+.nav-prev-next {
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.3);
+}
+.prev,
+.next {
+    max-width: 45%;
+}

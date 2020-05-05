@@ -41,9 +41,11 @@
                 <div class="row my-2 justify-content-center">
                     <ul class="list-inline">
                         @foreach ($article->tags as $tag)
-                            <li class="list-inline-item badge badge-pill badge-light">
-                                <i class="fas fa-tag"></i>
-                                <a href="{{ route('tag', ['id' => $tag->id]) }}" class="article-tag">{{ $tag->name }}</a>
+                            <li class="list-inline-item badge badge-pill badge-light shadow-sm py-2">
+                                <a href="{{ route('tag', ['id' => $tag->id]) }}" class="article-tag py-2">
+                                    <i class="fas fa-tag"></i>
+                                    {{ $tag->name }}
+                                </a>
                             </li>
                         @endforeach
                     </ul>
@@ -79,7 +81,25 @@
             </a> 许可协议。转载请注明出处！
         </li>
     </ul>
-    <div id="share" class="social-share mx-1 mx-sm-3 mb-4 text-center"></div>
+    <div id="share" class="social-share mx-1 mx-sm-3 my-3 text-center"></div>
+    <ul class="nav-prev-next list-inline d-flex justify-content-between mx-1 mx-sm-3 my-3 p-2 rounded shadow-sm">
+        <li class="next list-inline-item">
+            @if(!is_null($next))
+                <a href="{{ url('/articles/'.$next->id) }}">
+                    <i class="fas fa-chevron-left"></i>
+                    {{ $next->title }}
+                </a>
+            @endif
+        </li>
+        <li class="prev list-inline-item text-right">
+            @if(!is_null($prev))
+                <a href="{{ url('/articles/'.$prev->id) }}">
+                    {{ $prev->title }}
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            @endif
+        </li>
+    </ul>
     @if($article->comments)
         <hr class="mb-4"/>
         <!-- 评论插件 -->
