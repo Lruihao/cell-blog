@@ -38,8 +38,8 @@
     </div>
 </nav>
 
-<div class="container main p-1 p-sm-3 rounded">
-    <div class="jumbotron text-center mb-0">
+<div class="container main shadow-sm p-1 p-sm-3 rounded">
+    <div class="jumbotron shadow text-center mb-0">
         <div class="container animated fast bounceInDown">
             @yield('header-text')
         </div>

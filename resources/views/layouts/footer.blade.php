@@ -29,6 +29,11 @@
     </div>
 </footer>
 
+<div class="back-to-top fa-stack d-none">
+    <i class="fas fa-circle fa-stack-2x"></i>
+    <i class="fas fa-arrow-up fa-stack-1x fa-inverse"></i>
+</div>
+
 <script src="{{ asset('/libs/jquery-3.4.1.min.js') }}"></script>
 <script src="{{ asset('/libs/bootstrap4.3/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('/js/love.min.js') }}" async defer></script>
