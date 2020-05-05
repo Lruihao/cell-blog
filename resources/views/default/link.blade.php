@@ -28,6 +28,6 @@
         </ul>
     </div>
     <div class="card-footer text-center">
-        <a href="{{ url('/links') }}" class="btn btn-light">更多友链 »</a>
+        <a href="{{ route('links') }}" class="btn btn-light">更多友链 »</a>
     </div>
 </div>

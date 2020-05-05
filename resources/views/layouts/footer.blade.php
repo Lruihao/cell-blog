@@ -34,12 +34,12 @@
     <i class="fas fa-arrow-up fa-stack-1x fa-inverse"></i>
 </div>
 
-<script src="{{ asset('/libs/jquery-3.4.1.min.js') }}"></script>
-<script src="{{ asset('/libs/bootstrap4.3/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('/js/love.min.js') }}" async defer></script>
-<script src="{{ asset('/js/index.js') }}" async defer></script>
-<script src="//at.alicdn.com/t/font_578712_g26jo2kbzd5qm2t9.js" async></script>
-<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+<script type="text/javascript" src="{{ asset('/libs/jquery-3.4.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/libs/bootstrap4.3/js/bootstrap.bundle.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/js/love.min.js') }}" async defer></script>
+<script type="text/javascript" src="{{ asset('/js/index.js') }}" async defer></script>
+<script type="text/javascript" src="//at.alicdn.com/t/font_578712_g26jo2kbzd5qm2t9.js" async></script>
+<script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
 
 @yield('script')
 

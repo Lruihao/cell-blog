@@ -26,10 +26,12 @@ Route::get('/search', 'ArticleController@search')->name('search');
 Route::get('/about', 'PageController@about')->name('about');
 Route::get('/guestbook', 'PageController@guestbook')->name('guestbook');
 Route::get('/links', 'PageController@links')->name('links');
+Route::get('/album', 'PageController@album')->name('album');
 
 Route::permanentRedirect('/pages/about', '/about');
 Route::permanentRedirect('/pages/guestbook', '/guestbook');
 Route::permanentRedirect('/pages/links', '/links');
+Route::permanentRedirect('/pages/album', '/album');
 
 Route::get('/pages/{alias}', 'PageController@index')->name('page.show');
 

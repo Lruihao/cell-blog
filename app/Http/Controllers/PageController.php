@@ -58,4 +58,13 @@ class PageController extends Controller
             ]);
         return view('default.show_link', compact('links'));
     }
+
+    /**
+     * 相册页面
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function album()
+    {
+        return view('default.show_album');
+    }
 }

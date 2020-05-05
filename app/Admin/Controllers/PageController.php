@@ -34,7 +34,12 @@ class PageController extends AdminController
             return <<<html
             <div class='text-center'>
                 <i class='fa fa-info-circle'></i>
-                <span>系统: 关于 about(需创建) , 留言 guestbook(需创建) , 友链 links(无需创建)</span>
+                <span>
+                    系统: 关于 about(需创建)，
+                    留言 guestbook(需创建)，
+                    友链 links(内置)，
+                    相册 ablum(内置，详见config/blog.php)
+                </span>
             </div>
 html;
         });

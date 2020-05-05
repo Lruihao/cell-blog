@@ -1,0 +1,119 @@
+/**
+ * album
+ */
+.photoBox{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  background: #121212;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+.cover{
+  width: 100%;
+  height: 700px;
+  display: flex;
+  vertical-align: middle;
+  background-position: left bottom !important;
+  background-size: cover !important;
+}
+.photo{
+  width: 350px;
+  height: 300px;
+  margin-top: 15px;
+}
+.photo>img{
+  width: 100%;
+  height: 216.3px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+.photo img:hover{
+  transform: scale(1.05);
+  transition: all 1s;
+}
+.photo>span{
+  display: block;
+  text-align: center;
+  height: 30px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.photo>span:last-child{
+  font-weight: 500;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #999;
+}
+.title{
+  width: auto;
+  height: auto;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.5);
+  text-align: center;
+  font-size: 4.5rem;
+  font-weight: bold;
+  vertical-align: middle;
+  color: #fff;
+}
+.title:hover{
+  transform: scale(1.05);
+  transition: all 0.5s;
+}
+.more{
+  width: 100%;
+}
+.btn-more{
+  display: block;
+  width: 300px;
+  padding: 15px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  outline: none;
+  border: 0;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: auto;
+}
+.btn-more:hover{
+  background: rgba(255,255,255,0.15);
+}
+.btn-more:active{
+  background: rgba(255,255,255,0.05);
+  transform: scale(0.99);
+  transition: all 0.15s;
+}
+
+/**
+ * common
+ */
+body{
+  margin: 0;
+  padding: 0;
+  background: #121212;
+}
+
+/**
+ * mobile
+ */
+@media screen and (max-width: 768px){
+  .cover{
+    height: 250px;
+  }
+  .title{
+    padding: 15px;
+    font-size: 2rem;
+  }
+  .btn-more{
+    width: 130px;
+    padding: 10px;
+    font-size: 1.5rem;
+  }
+}
