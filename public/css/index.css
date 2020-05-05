@@ -76,7 +76,8 @@ a:hover {
     box-shadow: 0 0 14px #cacbcb;
 }
 .welcome {
-     font-size: 1.5rem;
+    font-family: MMT;
+     font-size: 2rem;
 }
 .article-list .title {
     font-size: 22px;
@@ -249,6 +250,16 @@ a:hover {
     font-size: 1.4rem;
     z-index: 999;
 }
+
+/**
+ * 沐目体 https://github.com/Lruihao/MMT
+ * 大学期间的手写字体 https://lruihao.cn/posts/font-mmt.html
+ */
+@font-face {
+    font-family: MMT;
+    src: url("/fonts/MMT@Lruihao.ttf");
+}
+
 
 /* 移动端样式 */
 @media (max-width: 767px){
