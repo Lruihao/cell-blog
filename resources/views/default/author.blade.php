@@ -11,6 +11,7 @@
     </div>
     <div class="card-body text-center">
         <img src="{{ '/storage/system/'.$author->avatar }}" class="author-avatar mx-auto d-block rounded-circle" alt="author avatar">
+        <div class="motto"></div>
     </div>
     <div class="card-footer text-center">
         @if (config('github_url', config('blog.github_url')) != "")

@@ -21,5 +21,6 @@ Route::group([
     $router->resource('systems', SystemController::class);
     $router->resource('pages', PageController::class);
     $router->resource('friendship-links', FriendshipLinkController::class);
+    $router->resource('mottoes', MottoController::class);
 
 });

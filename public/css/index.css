@@ -183,6 +183,10 @@ a:hover {
 .author-avatar:hover {
     transform: rotate(360deg) scale(1.1);
 }
+.motto {
+    margin: 0.5rem 0;
+    font-size: 0.75rem;
+}
 .social-item {
     font-size: 0.9rem;
     padding: 0 0.25rem;
