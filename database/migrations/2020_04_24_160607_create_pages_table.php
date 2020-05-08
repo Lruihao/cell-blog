@@ -15,7 +15,7 @@ class CreatePagesTable extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id')->comment('页面主键');
-            $table->string('title', 200)->default('')->comment('页面标题');
+            $table->string('title')->default('')->comment('页面标题');
             $table->string('link_alias', 100)->nullable()->comment('链接别名');
             $table->string('keywords')->default('')->comment('关键词');
             $table->string('description')->default('')->comment('描述');
