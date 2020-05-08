@@ -18,8 +18,8 @@ class CreateNavigationsTable extends Migration
             $table->string('name')->default('')->comment('导航名');
             $table->string('url')->default('')->comment('链接');
             $table->string('icon', 20)->default('globe')->comment('图标');
-            $table->tinyInteger('target', 1)->default(0)->comment('打开方式: 1外部 0内部');
-            $table->tinyInteger('status', 1)->default(1)->comment('状态: 1显示 0隐藏');
+            $table->boolean('target')->default(0)->comment('打开方式: 1外部 0内部');
+            $table->boolean('status')->default(1)->comment('状态: 1显示 0隐藏');
             $table->tinyInteger('sort')->default(0)->comment('排序');
             $table->timestamps();
         });

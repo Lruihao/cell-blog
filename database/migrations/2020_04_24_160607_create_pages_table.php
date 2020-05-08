@@ -19,8 +19,8 @@ class CreatePagesTable extends Migration
             $table->string('link_alias', 100)->nullable()->comment('链接别名');
             $table->string('keywords')->default('')->comment('关键词');
             $table->string('description')->default('')->comment('描述');
-            $table->tinyInteger('comments', 1)->default(1)->comment('评论: 1打开 0关闭');
-            $table->tinyInteger('status', 1)->default(1)->comment('状态: 1发布 0草稿');
+            $table->boolean('comments')->default(1)->comment('评论: 1打开 0关闭');
+            $table->boolean('status')->default(1)->comment('状态: 1发布 0草稿');
             $table->string('password')->nullable()->default('')->comment('页面密码');
             $table->longText('markdown')->comment('markdown页面内容');
             $table->longText('html')->comment('markdown转的html页面');
