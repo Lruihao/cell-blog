@@ -49,16 +49,17 @@ composer install
 ```
 php artisan key:generate
 ```
-运行数据迁移
-```shell
-php artisan migrate
-```
 
-后台 数据填充
-> `G:\cell-blog\app\Admin directory already exists !`错误可无视
+运行数据迁移和后台数据填充
+
+> `php artisan admin:install`已包含数据迁移命令`php artisan migrate`  
+`G:\cell-blog\app\Admin directory already exists !`无需理会，继续执行剩下命令即可。
+
 ```
 php artisan admin:install
+
 php artisan admin:import media-manager
+
 php artisan db:seed
 ```
 
