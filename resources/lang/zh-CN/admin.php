@@ -101,8 +101,7 @@ return [
     ],
     'grid_items_selected'    => '已选择 {n} 项',
     'menu_titles' => [
-        'Dashboard'     => '主页',
-        'index'         => '主页',
+        'index'     => '主页',
         'admin'         => '系统',
         'users'         => '用户',
         'roles'         => '角色',
