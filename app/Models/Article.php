@@ -17,11 +17,6 @@ class Article extends Model
         'sort' => 0,
         'views' => 0,
     ];
-    /**
-     * 禁止修改属性
-     * @var array
-     */
-    protected $guarded = ['id'];
 
     /**
      * 模型启动的方法
