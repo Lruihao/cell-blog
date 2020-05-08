@@ -10,7 +10,11 @@
         </h3>
     </div>
     <div class="card-body text-center">
-        <img src="{{ '/storage/system/'.$author->avatar }}" class="author-avatar mx-auto d-block rounded-circle" alt="author avatar">
+        @if($author->avatar)
+            <img src="{{ '/storage/system/'.$author->avatar }}" class="author-avatar mx-auto d-block rounded-circle" alt="author avatar">
+        @else
+            <img src="{{ url('/vendor/laravel-admin/AdminLTE/dist/img/user2-160x160.jpg') }}" class="author-avatar mx-auto d-block rounded-circle" alt="author avatar">
+        @endif
         <div class="motto"></div>
     </div>
     <div class="card-footer text-center">
