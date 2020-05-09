@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{ asset('/libs/fontawesome5.11.2/css/solid.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/libs/fontawesome5.11.2/css/brands.min.css') }}">
     <!-- Animate.css -->
-    <link rel="stylesheet" href="{{ asset('/libs/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/index.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/cos-album.css') }}"/>
 
