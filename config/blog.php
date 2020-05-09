@@ -5,7 +5,7 @@ return [
     |--------------------------------------------------------------------------
     | Cell Blog config Goto http://your.host/admin/systems
     |--------------------------------------------------------------------------
-    | ！！！请勿修改该配置文件，自定义请前往 后台->博客配置 添加参数
+    | ！！！不建议修改该配置文件，推荐前往 后台->配置 添加key-value即可，方便管理
     |
     */
     'title' => 'Cell Blog',
@@ -32,7 +32,7 @@ return [
     | cos-ablum为需要解析的腾讯云COS桶XML链接
     | eg. https://img-xxxxxxxxxx.cos.ap-chengdu.myqcloud.com
     */
-    'cos-album' => 'https://img-1256932288.cos.ap-chengdu.myqcloud.com',
+    'cos-album' => '',
 
     /*
     |--------------------------------------------------------------------------

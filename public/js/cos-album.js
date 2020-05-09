@@ -150,9 +150,9 @@ function moreClick(obj, contentX, xmlLink) {
     let desc = document.createElement("span");
     let upDate = document.createElement("span");
     photo.className = "photo";
-    img.setAttribute("src",`${xmlLink}/${titleContent}/${contentX[i].url}`);
-    img.setAttribute("alt",contentX[i].url);
-    desc.innerHTML = contentX[i].url.slice(0,-4);
+    img.setAttribute("src",`${xmlLink}/${titleContent}/${url}`);
+    img.setAttribute("alt",url);
+    desc.innerHTML = url.slice(0,-4);
     upDate.innerHTML = contentX[i].date;
     photo.appendChild(img);
     photo.appendChild(desc);
