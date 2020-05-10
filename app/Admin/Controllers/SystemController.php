@@ -15,7 +15,7 @@ class SystemController extends AdminController
      *
      * @var string
      */
-    protected $title = '博客设置';
+    protected $title = '博客配置';
 
     /**
      * Make a grid builder.
