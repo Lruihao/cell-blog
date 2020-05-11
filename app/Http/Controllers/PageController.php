@@ -50,7 +50,7 @@ class PageController extends Controller
         $links = FriendshipLink::query()
             ->where('status', '=', 1)
             ->orderBy('sort', 'desc')
-            ->paginate(2, [
+            ->paginate(21, [
                 'name',
                 'url',
                 'avatar',
