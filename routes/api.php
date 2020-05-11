@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/motto', function(){
-    return \App\Models\Motto::query()
+    return App\Models\Motto::query()
         ->inRandomOrder()
         ->first();
-})->name('search');
+})->name('motto');
