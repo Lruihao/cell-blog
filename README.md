@@ -1,8 +1,33 @@
-<p align="center"><h1>Cell Blog</h1></p>
+<h1 align="center" >Cell Blog</h1>
+
+> 基于Laravel7开发，Markdown语法的个人独立博客。
 
 ## 功能
+- 支持Markdown,文章实时预览效果
+- 支持多种编程语言代码高亮
+- 编辑器图片上传
+- 后台上传文件管理
+- 文章搜索
+- 文章分类
+- 文章标签
+- 热门文章
+- 随机格言
+- 文章管理(发布，评论开关，排序)
+- 自定义导航(显示开关，排序)
+- 自定义页面(发布开关)
+- 友情链接(显示开关，排序)
+- [COS桶相册](https://github.com/Lruihao/cos-album)
+- 丰富的博客配置(方便扩展，支持自定义JS脚本)
+- 不蒜子计数
+- Leancloud计数
+- Valine评论插件
+- 文章分享插件
+
 
 ## 截图
+![前台首页.png](https://i.loli.net/2020/05/11/vHeNRG4Qi7ljrM8.png)  
+![管理文章.png](https://i.loli.net/2020/05/11/tMEQe7WvYmw3jd4.png)  
+![编辑文章.png](https://i.loli.net/2020/05/11/DeOWyJ3zluLKvBn.png)  
 
 ## 安装
 下载
@@ -31,7 +56,7 @@ DB_USERNAME= #数据库用户
 DB_PASSWORD= #数据库密码
 ```
 
-打开`app\Providers\AppServiceProvider.php`,注释`SystemController:load` 防止后续步骤报错
+打开`app\Providers\AppServiceProvider.php`,注释`SystemController:load()` 防止后续步骤报错
 ```
     public function boot()
     {
@@ -68,7 +93,7 @@ php artisan db:seed
 php artisan storage:link
 ```
 
-打开`app\Providers\AppServiceProvider.php`,取消注释`SystemController:load`
+打开`app\Providers\AppServiceProvider.php`,取消注释`SystemController:load()`
 ```
     public function boot()
     {
@@ -77,6 +102,6 @@ php artisan storage:link
     }
 ```
 
-将项目根目录指向入口public目录
+将博客网站根目录指向入口public目录
 
 启动服务后，在浏览器打开`http://localhost/admin/`,使用用户名`admin`和密码`admin`登录.
