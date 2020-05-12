@@ -105,3 +105,7 @@ php artisan storage:link
 将博客网站根目录指向入口public目录
 
 启动服务后，在浏览器打开`http://localhost/admin/`,使用用户名`admin`和密码`admin`登录.
+
+## License
+Cell Blog is open-sourced software licensed under the MIT license.
+
