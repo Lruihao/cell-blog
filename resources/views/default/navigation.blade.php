@@ -12,7 +12,7 @@
         </li>
         @if ($navigations)
             @foreach ($navigations as $navigation)
-                @if($loop->index == 8)
+                @if($loop->index == 6)
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">更多</a>
                         <div class="dropdown-menu">
@@ -23,7 +23,7 @@
                             </a>
                             @continue
                 @endif
-                @if($loop->index > 8)
+                @if($loop->index > 6)
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ $navigation->url }}"
                        target="{{ $navigation->target ? '_blank': '_self' }}">
@@ -32,7 +32,7 @@
                     </a>
                     @continue
                 @endif
-                @if($loop->index > 8 && $loop->last)
+                @if($loop->index > 6 && $loop->last)
                         </div>
                     </li>
                 @endif
