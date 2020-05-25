@@ -25,10 +25,11 @@
     }
 </style>
 
-<div class="title" title="Cell Blog 前台">
+<div class="title" title="Cell Blog 前台" data-toggle="tooltip" data-placement="top">
     <a href="/" target="_blank">Cell Blog</a>
 </div>
 <div class="links">
-    <a href="https://github.com/Lruihao/cell-blog" target="_blank">Github</a>
-    <a href="http://lruihao.cn"  target="_blank">Author@Lruihao</a>
+    <a href="https://github.com/Lruihao/cell-blog" title="https://github.com/Lruihao/cell-blog" data-toggle="tooltip"
+       data-placement="top" target="_blank">Github</a>
+    <a href="http://lruihao.cn" title="http://lruihao.cn" data-toggle="tooltip" data-placement="top" target="_blank">Author@Lruihao</a>
 </div>
