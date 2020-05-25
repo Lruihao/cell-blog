@@ -7,6 +7,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Zhusaidong\GridExporter\Exporter;
 
 class MottoController extends AdminController
 {
@@ -25,6 +26,8 @@ class MottoController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Motto());
+        $exporter = Exporter::get($grid);
+        $exporter->setFileName('格言列表.xlsx');
 
         $grid->model()->orderBy('id', 'desc');
 

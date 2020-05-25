@@ -7,6 +7,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Zhusaidong\GridExporter\Exporter;
 
 class TagController extends AdminController
 {
@@ -25,6 +26,8 @@ class TagController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Tag());
+        $exporter = Exporter::get($grid);
+        $exporter->setFileName('标签列表.xlsx');
 
         $grid->model()->orderBy('id', 'desc');
 
@@ -34,7 +37,7 @@ class TagController extends AdminController
         $grid->column('articles', __('Article amount'))
             ->display(function ($articles) {
                 $count = count($articles);
-                return "{$count}&nbsp;篇";
+                return "{$count} 篇";
             })->label('primary');
         $grid->column('description', __('Description'))
             ->limit(40);

@@ -430,6 +430,10 @@ return [
         'grid-lightbox' => [
             // Set to `false` if you want to disable this extension
             'enable' => true,
+        ],
+        'gridexporter' => [
+            // Set this to false if you want to disable this extension
+            'enable' => true,
         ]
     ],
 ];

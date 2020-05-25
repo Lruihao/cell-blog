@@ -7,6 +7,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Zhusaidong\GridExporter\Exporter;
 
 class FriendshipLinkController extends AdminController
 {
@@ -25,6 +26,8 @@ class FriendshipLinkController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new FriendshipLink());
+        $exporter = Exporter::get($grid);
+        $exporter->setFileName('友链列表.xlsx');
 
         $grid->model()
             ->orderBy('sort', 'desc')

@@ -11,6 +11,7 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 use Encore\Admin\Facades\Admin;
+use Zhusaidong\GridExporter\Exporter;
 
 class ArticleController extends AdminController
 {
@@ -29,6 +30,8 @@ class ArticleController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Article());
+        $exporter = Exporter::get($grid);
+        $exporter->setFileName('文章列表.xlsx');
         global $isAdmin;
         $isAdmin = Admin::user()->isAdministrator();
         $states = [

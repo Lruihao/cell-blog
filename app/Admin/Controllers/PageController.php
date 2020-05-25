@@ -7,6 +7,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Zhusaidong\GridExporter\Exporter;
 
 class PageController extends AdminController
 {
@@ -25,6 +26,8 @@ class PageController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Page());
+        $exporter = Exporter::get($grid);
+        $exporter->setFileName('页面列表.xlsx');
         $states = [
             'on' => ['text' => 'YES'],
             'off' => ['text' => 'NO'],

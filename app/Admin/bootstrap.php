@@ -1,7 +1,6 @@
 <?php
 
 use Encore\Admin\Grid;
-use Encore\Admin\Facades\Admin;
 
 /**
  * Laravel-admin - admin builder based on Laravel.
@@ -27,9 +26,6 @@ Encore\Admin\Form::forget(['map', 'editor']);
 Grid::init(function (Grid $grid) {
 
     $grid->disableFilter();
-
-    /*Grid导出csv*/
-    $grid->disableExport();
 
     /*Grid快捷键*/
 //    $grid->enableHotKeys();

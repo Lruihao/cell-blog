@@ -7,6 +7,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Zhusaidong\GridExporter\Exporter;
 
 class SystemController extends AdminController
 {
@@ -25,6 +26,8 @@ class SystemController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new System());
+        $exporter = Exporter::get($grid);
+        $exporter->setFileName('配置列表.xlsx');
 
         $grid->header(function () {
             return <<<html
