@@ -90,11 +90,11 @@ class FriendshipLinkController extends AdminController
 
         $form->text('name', __('Name'))
             ->autofocus()
-            ->required();
+            ->rules('required|max:20');
         $form->url('url', __('Url'))
             ->required();
         $form->text('description', __('Description'))
-            ->required();
+            ->rules('required|max:100');
         $form->url('avatar', __('Avatar'));
         $form->number('sort', __('Sort'))
             ->default(0)

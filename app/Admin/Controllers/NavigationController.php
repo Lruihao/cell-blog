@@ -97,7 +97,7 @@ class NavigationController extends AdminController
 
         $form->text('name', __('Name'))
             ->autofocus()
-            ->required();
+            ->rules('required|max:20');
         $form->text('url', __('Url'))
             ->required();
         $form->text('icon', __('Icon'))

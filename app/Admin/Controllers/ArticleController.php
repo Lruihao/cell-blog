@@ -128,10 +128,10 @@ class ArticleController extends AdminController
         $form->column(12, function ($form) {
             $form->text('title', __('Title'))
                 ->autofocus()
-                ->required();
+                ->rules('required|max:50');
         });
         $form->textarea('description', __('Description'))
-            ->required();
+            ->rules('required|max:200');
         $form->text('keywords', __('Keywords'));
         $form->divider();
         $form->column(3, function ($form) {

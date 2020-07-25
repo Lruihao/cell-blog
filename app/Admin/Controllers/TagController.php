@@ -87,9 +87,9 @@ class TagController extends AdminController
 
         $form->text('name', __('Name'))
             ->autofocus()
-            ->required();
+            ->rules('required|max:20');
         $form->text('description', __('Description'))
-            ->required();
+            ->rules('required|max:100');
         $form->text('keywords', __('Keywords'));
 
         return $form;

@@ -96,9 +96,9 @@ html;
 
         $form->text('name', __('Name'))
             ->autofocus()
-            ->required();
+            ->rules('required|max:20');
         $form->text('system_key', __('System key'))
-            ->required();
+            ->rules('required|max:20');
         $form->textarea('system_value', __('System value'));
         $form->switch('status', __('Status'))
             ->default(1);

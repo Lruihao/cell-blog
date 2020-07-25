@@ -109,11 +109,11 @@ html;
         $form->column(12,function ($form){
             $form->text('title', __('Title'))
                 ->autofocus()
-                ->required();
+                ->rules('required|max:50');;
         });
         $form->column(12,function ($form){
             $form->textarea('description', __('Description'))
-                ->required();
+            ->rules('required|max:200');
         });
         $form->text('keywords', __('Keywords'))
             ->required();

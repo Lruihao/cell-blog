@@ -76,7 +76,7 @@ class MottoController extends AdminController
 
         $form->text('motto', __('Motto'))
             ->autofocus()
-            ->required();
+            ->rules('required|max:50');
 
         return $form;
     }
