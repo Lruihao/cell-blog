@@ -30,6 +30,8 @@
 ![编辑文章.png](https://i.loli.net/2020/05/11/DeOWyJ3zluLKvBn.png)  
 
 ## 安装
+> 注意事项：PHP取消禁用函数`putenv()`和`symlink()`，安装`fileinfo`扩展。
+
 下载
 ```
 git clone https://github.com/Lruihao/cell-blog.git
@@ -47,13 +49,13 @@ cp .env.example .env
 
 编辑.env环境配置
 ```shell
-APP_URL=http://localhost #使用本地文件系统存储文件时，必须填写正确地址
-APP_DEBUG=false #关闭调试
-DB_HOST= #数据库地址
-DB_PORT=3306 #数据库端口
-DB_DATABASE= #数据库名称
-DB_USERNAME= #数据库用户
-DB_PASSWORD= #数据库密码
+APP_URL=http://localhost ##使用本地文件系统存储文件时，必须填写正确地址
+APP_DEBUG=false ##关闭调试
+DB_HOST= ##数据库地址
+DB_PORT=3306 ##数据库端口
+DB_DATABASE= ##数据库名称
+DB_USERNAME= ##数据库用户
+DB_PASSWORD= ##数据库密码
 ```
 
 打开`app\Providers\AppServiceProvider.php`,注释`SystemController:load()` 防止后续步骤报错
@@ -104,8 +106,16 @@ php artisan storage:link
 
 将博客网站根目录指向入口public目录
 
+如果使用Nginx，要设置伪静态
+```
+location / {
+    try_files $uri $uri/ /index.php?$query_string;
+}
+```
+
 启动服务后，在浏览器打开`http://localhost/admin/`,使用用户名`admin`和密码`admin`登录.
 
 ## License
 Cell Blog is open-sourced software licensed under the MIT license.
 
+![Stargazers over time](https://starchart.cc/Lruihao/cell-blog.svg)
