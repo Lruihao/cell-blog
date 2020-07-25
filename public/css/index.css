@@ -246,6 +246,11 @@ a:hover {
 .divider {
     margin: 0 2px;
 }
+.github-star{
+    margin-bottom:-5px;
+    width: 100px;
+    height: 20px;
+}
 .back-to-top {
     position: fixed;
     right: 1.5rem;
